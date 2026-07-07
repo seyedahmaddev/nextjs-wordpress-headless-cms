@@ -5,7 +5,7 @@ import { Post } from "@/lib/wordpress.d";
 import { cn } from "@/lib/utils";
 import { truncateHtml } from "@/lib/metadata";
 
-export function PostCard({ post }: { post: Post }) {
+export function PostCard({ post }: { post: Post; }) {
   // Use embedded data instead of separate API calls
   const media = post._embedded?.["wp:featuredmedia"]?.[0] ?? null;
   const category = post._embedded?.["wp:term"]?.[0]?.[0] ?? null;
@@ -15,7 +15,8 @@ export function PostCard({ post }: { post: Post }) {
     year: "numeric",
   });
   const cleanSlug = post.slug.trim().replace(/[\u200B-\u200D\uFEFF]/g, "");
-
+  console.log(post.slug);
+  console.log([...post.slug].map(c => c.charCodeAt(0).toString(16)));
   return (
     <Link
       href={`/posts/${cleanSlug}`}
