@@ -228,9 +228,9 @@ export async function getPostBySlug(slug: string): Promise<Post | undefined> {
     { slug, _embed: true }
   );
   return posts[0];
-  
-}
 
+}
+//add some space and comments
 export async function getAllCategories(): Promise<Category[]> {
   return wordpressFetchGraceful<Category[]>(
     "/wp-json/wp/v2/categories",
