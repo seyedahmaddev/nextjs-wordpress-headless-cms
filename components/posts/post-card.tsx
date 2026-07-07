@@ -14,7 +14,12 @@ export function PostCard({ post }: { post: Post; }) {
     day: "numeric",
     year: "numeric",
   });
-  const cleanSlug = post.slug.trim().replace(/[\u200B-\u200D\uFEFF]/g, "");
+  const cleanSlug = slug
+  .normalize("NFC")
+  .replace(/[\u200B-\u200D\uFEFF]/g, "")
+  .replace(/ي/g, "ی")
+  .replace(/ك/g, "ک")
+  .trim();
   console.log(post.slug);
   console.log([...post.slug].map(c => c.charCodeAt(0).toString(16)));
   return (
