@@ -13,7 +13,6 @@ export async function generateStaticParams() {
   return await getAllPostSlugs();
 }
 
-
 export async function generateMetadata({
   params,
 }: {
