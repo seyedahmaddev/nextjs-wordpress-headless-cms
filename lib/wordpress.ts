@@ -228,6 +228,7 @@ export async function getPostBySlug(slug: string): Promise<Post | undefined> {
     { slug, _embed: true }
   );
   return posts[0];
+  
 }
 
 export async function getAllCategories(): Promise<Category[]> {
