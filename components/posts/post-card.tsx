@@ -24,7 +24,7 @@ export function PostCard({ post }: { post: Post; }) {
   console.log([...post.slug].map(c => c.charCodeAt(0).toString(16)));
   return (
     <Link
-      href={`/posts/${cleanSlug}`}
+      href={`/posts/${encodeURIComponent(cleanSlug)}`}
       className={cn(
         "border p-4 bg-accent/30 rounded-lg group flex justify-between flex-col not-prose gap-8",
         "hover:bg-accent/75 transition-all"
