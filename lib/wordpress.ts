@@ -222,10 +222,15 @@ export async function getPostById(id: number): Promise<Post> {
 }
 
 export async function getPostBySlug(slug: string): Promise<Post | undefined> {
+
+   // ۱. حذف فاصله‌های خالی و کاراکترهای پنهان (Zero-width characters)
+  // این رگکس تمام کاراکترهای کنترلی و نامرئی را حذف می‌کند
+  const cleanSlug = slug.trim().replace(/[\u200B-\u200D\uFEFF]/g, "");
+
   const posts = await wordpressFetchGraceful<Post[]>(
     "/wp-json/wp/v2/posts",
     [],
-    { slug, _embed: true }
+    { slug: cleanSlug, _embed: true }
   );
   return posts[0];
 }
