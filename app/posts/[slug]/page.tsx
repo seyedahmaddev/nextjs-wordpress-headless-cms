@@ -13,6 +13,10 @@ export async function generateStaticParams() {
   return await getAllPostSlugs();
 }
 
+export const dynamicParams = true; 
+
+export const revalidate = 3600; 
+
 export async function generateMetadata({
   params,
 }: {
