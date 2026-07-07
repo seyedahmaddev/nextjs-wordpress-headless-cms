@@ -14,10 +14,11 @@ export function PostCard({ post }: { post: Post }) {
     day: "numeric",
     year: "numeric",
   });
+  const cleanSlug = post.slug.trim().replace(/[\u200B-\u200D\uFEFF]/g, "");
 
   return (
     <Link
-      href={`/posts/${post.slug}`}
+      href={`/posts/${cleanSlug}`}
       className={cn(
         "border p-4 bg-accent/30 rounded-lg group flex justify-between flex-col not-prose gap-8",
         "hover:bg-accent/75 transition-all"
