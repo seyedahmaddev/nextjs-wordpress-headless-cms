@@ -15,9 +15,16 @@ export function PostCard({ post }: { post: Post; }) {
     year: "numeric",
   });
 
-  console.log("Original:", post.slug);
-  console.log("Encoded:", encodeURIComponent(post.slug));
-  console.log("Decoded:", decodeURIComponent(post.slug));
+  const href = `/posts/${post.slug}`;
+
+  console.log("href:", href);
+
+  console.log(
+    [...href].map((c) => ({
+      char: c,
+      hex: c.codePointAt(0)?.toString(16),
+    }))
+  );
   return (
     <Link
       href={`/posts/${post.slug}`}
