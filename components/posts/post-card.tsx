@@ -15,6 +15,9 @@ export function PostCard({ post }: { post: Post; }) {
     year: "numeric",
   });
 
+  console.log("Original:", post.slug);
+  console.log("Encoded:", encodeURIComponent(post.slug));
+  console.log("Decoded:", decodeURIComponent(post.slug));
   return (
     <Link
       href={`/posts/${post.slug}`}
