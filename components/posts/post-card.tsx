@@ -17,7 +17,6 @@ export function PostCard({ post }: { post: Post; }) {
 
   const href = `/posts/${post.slug}`;
 
-  console.log("href:", href);
 
   console.log(
     [...href].map((c) => ({
