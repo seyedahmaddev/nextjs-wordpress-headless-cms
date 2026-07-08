@@ -1,6 +1,6 @@
 // components/posts/BlogPreview.tsx
 import { getRecentPosts } from "@/lib/wordpress";
-import { PostCard } from "./post-card";
+import { PostCard } from "@/components/posts/post-card"
 import Link from "next/link";
 import Image from "next/image";
 
