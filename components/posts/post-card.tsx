@@ -28,7 +28,7 @@ export function PostCard({ post }: { post: Post }) {
           {media?.source_url ? (
             <Image
               className="h-full w-full object-cover"
-              src={media.source_url}
+              src={`/api/image?url=${encodeURIComponent(media.source_url)}`}
               alt={post.title?.rendered || "Post thumbnail"}
               width={400}
               height={200}
