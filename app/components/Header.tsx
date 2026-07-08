@@ -39,7 +39,7 @@ const company = [
   { name: 'Careers', href: '#' },
   { name: 'Support', href: '#' },
   { name: 'Press', href: '#' },
-  { name: 'Blog', href: '#' },
+  { name: 'Blog', href: '/blog' },
 ]
 
 export default function Example() {

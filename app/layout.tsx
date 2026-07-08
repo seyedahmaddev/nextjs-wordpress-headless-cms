@@ -8,6 +8,7 @@ import { siteConfig } from "@/site.config";
 import { cn } from "@/lib/utils";
 
 import type { Metadata } from "next";
+import Header from "./components/Header";
 
 // متادیتای اختصاصی
 export const metadata: Metadata = {
@@ -49,7 +50,7 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <Nav />
+          <Header />
           <main className="flex-1">{children}</main>
           <Footer />
         </ThemeProvider>
