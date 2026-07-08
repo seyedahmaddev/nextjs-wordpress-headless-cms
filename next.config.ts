@@ -1,26 +1,31 @@
 import type { NextConfig } from "next";
 
-const wordpressHostname = process.env.WORDPRESS_HOSTNAME;
-const wordpressUrl = process.env.WORDPRESS_URL;
+// خواندن از محیط، با مقدار پیش‌فرض خالی برای جلوگیری از خطا
+const wordpressHostname = process.env.WORDPRESS_HOSTNAME || "";
+const wordpressUrl = process.env.WORDPRESS_URL || "";
 
 const nextConfig: NextConfig = {
   output: "standalone",
   images: {
-    remotePatterns: wordpressHostname
-      ? [
-          {
-            protocol: "https",
-            hostname: wordpressHostname,
-            port: "",
-            pathname: "/**",
-          },
-        ]
-      : [],
+    // فقط در صورتی که متغیر محیطی وجود داشته باشد، remotePatterns را اضافه کن
+    ...(wordpressHostname && {
+      remotePatterns: [
+        {
+          protocol: "https",
+          hostname: wordpressHostname,
+          port: "",
+          pathname: "/wp-content/uploads/**",
+        },
+      ],
+    }),
+    dangerouslyAllowSVG: true,
+    contentDispositionType: 'attachment',
+    contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
   },
   async redirects() {
-    if (!wordpressUrl) {
-      return [];
-    }
+    // اگر آدرس وردپرس وجود نداشت، هیچ ریدایرکتی انجام نده
+    if (!wordpressUrl) return [];
+    
     return [
       {
         source: "/admin",

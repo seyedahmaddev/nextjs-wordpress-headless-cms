@@ -1,5 +1,6 @@
 import { getPostBySlug, getAllPostSlugs } from "@/lib/wordpress";
 import { generateContentMetadata, stripHtml } from "@/lib/metadata";
+import Image from "next/image";
 
 import { Section, Container, Article, Prose } from "@/components/craft";
 import { badgeVariants } from "@/components/ui/badge";
@@ -95,10 +96,13 @@ export default async function Page({
           {featuredMedia?.source_url && (
             <div className="h-96 my-12 md:h-[500px] overflow-hidden flex items-center justify-center border rounded-lg bg-accent/25">
               {/* eslint-disable-next-line */}
-              <img
+              <Image
                 className="w-full h-full object-cover"
                 src={featuredMedia.source_url}
                 alt={post.title.rendered}
+                width={1200}
+                height={500}
+                priority
               />
             </div>
           )}
