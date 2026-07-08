@@ -1,88 +1,117 @@
-const jobOpenings = [
-  {
-    id: 1,
-    role: 'Full-time designer',
-    href: '#',
-    description:
-      'Quos sunt ad dolore ullam qui. Enim et quisquam dicta molestias. Corrupti quo voluptatum eligendi autem labore.',
-    salary: '$75,000 USD',
-    location: 'San Francisco, CA',
-  },
-  {
-    id: 2,
-    role: 'Laravel developer',
-    href: '#',
-    description:
-      'Et veniam et officia dolorum rerum. Et voluptas consequatur magni sapiente amet voluptates dolorum. Ut porro aut eveniet.',
-    salary: '$125,000 USD',
-    location: 'San Francisco, CA',
-  },
-  {
-    id: 3,
-    role: 'React Native developer',
-    href: '#',
-    description:
-      'Veniam ipsam nisi quas architecto eos non voluptatem in nemo. Est occaecati nihil omnis delectus illum est.',
-    salary: '$105,000 USD',
-    location: 'San Francisco, CA',
-  },
-]
+// components/posts/BlogPreview.tsx
+import { getRecentPosts } from "@/lib/wordpress";
+import { PostCard } from "./post-card";
+import Link from "next/link";
+import Image from "next/image";
 
-export default function Example() {
+// تصویر شاخص (می‌تونی از وردپرس یا استاتیک استفاده کنی)
+// من یه عکس پیش‌فرض از unsplash گذاشتم، اما می‌تونی از featured media اولین پست استفاده کنی
+const defaultImage = "https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=800&h=600&fit=crop";
+
+export default async function BlogPreview() {
+  // دریافت ۳ پست آخر (یا هر تعداد که می‌خوای)
+  const posts = await getRecentPosts();
+  const latestPosts = posts.slice(0, 3);
+
+  // اگر پستی وجود نداشت
+  if (latestPosts.length === 0) {
+    return (
+      <div className="bg-background py-16 text-center text-muted-foreground">
+        هنوز پستی منتشر نشده است.
+      </div>
+    );
+  }
+
+  // برای بخش سمت چپ، از اولین پست استفاده می‌کنیم
+  const featuredPost = latestPosts[0];
+  const featuredImage = featuredPost._embedded?.["wp:featuredmedia"]?.[0]?.source_url || defaultImage;
+
   return (
-    <div className="bg-white py-32">
+    <div className="bg-background py-16 md:py-24">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto flex max-w-2xl flex-col items-end justify-between gap-16 lg:mx-0 lg:max-w-none lg:flex-row">
+          
+          {/* بخش چپ: توضیحات + تصویر شاخص */}
           <div className="w-full lg:max-w-lg lg:flex-auto">
-            <h2 className="text-3xl font-semibold tracking-tight text-pretty text-gray-900 sm:text-4xl">
-              We’re always looking for awesome people to join us
+            <h2 className="text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">
+              آخرین مطالب وبلاگ
             </h2>
-            <p className="mt-6 text-xl/8 text-gray-600">
-              Diam nunc lacus lacus aliquam turpis enim. Eget hac velit est euismod lacus. Est non placerat nam arcu.
-              Cras purus nibh cursus sit eu in id.
+            <p className="mt-6 text-lg text-muted-foreground">
+              جدیدترین مقالات و آموزش‌های حوزه برنامه‌نویسی، طراحی وب و فناوری‌های روز رو اینجا بخونید.
             </p>
-            <img
-              alt=""
-              src="https://images.unsplash.com/photo-1606857521015-7f9fcf423740?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1344&h=1104&q=80"
-              className="mt-16 aspect-6/5 w-full rounded-2xl bg-gray-50 object-cover lg:aspect-auto lg:h-[34.5rem]"
-            />
+            
+            {/* تصویر شاخص (از اولین پست) */}
+            <div className="mt-8 overflow-hidden rounded-2xl border bg-muted/30">
+              <Image
+                src={featuredImage}
+                alt={featuredPost.title?.rendered || "تصویر شاخص"}
+                width={800}
+                height={600}
+                className="aspect-[4/3] w-full object-cover"
+              />
+            </div>
           </div>
+
+          {/* بخش راست: لیست پست‌ها */}
           <div className="w-full lg:max-w-xl lg:flex-auto">
-            <h3 className="sr-only">Job openings</h3>
-            <ul className="-my-8 divide-y divide-gray-100">
-              {jobOpenings.map((opening) => (
-                <li key={opening.id} className="py-8">
-                  <dl className="relative flex flex-wrap gap-x-3">
-                    <dt className="sr-only">Role</dt>
-                    <dd className="w-full flex-none text-lg font-semibold tracking-tight text-gray-900">
-                      <a href={opening.href}>
-                        {opening.role}
-                        <span aria-hidden="true" className="absolute inset-0" />
-                      </a>
-                    </dd>
-                    <dt className="sr-only">Description</dt>
-                    <dd className="mt-2 w-full flex-none text-base/7 text-gray-600">{opening.description}</dd>
-                    <dt className="sr-only">Salary</dt>
-                    <dd className="mt-4 text-base/7 font-semibold text-gray-900">{opening.salary}</dd>
-                    <dt className="sr-only">Location</dt>
-                    <dd className="mt-4 flex items-center gap-x-3 text-base/7 text-gray-500">
-                      <svg viewBox="0 0 2 2" aria-hidden="true" className="size-0.5 flex-none fill-gray-300">
-                        <circle r={1} cx={1} cy={1} />
-                      </svg>
-                      {opening.location}
-                    </dd>
-                  </dl>
-                </li>
-              ))}
+            <h3 className="sr-only">آخرین پست‌ها</h3>
+            <ul className="-my-8 divide-y divide-border">
+              {latestPosts.map((post) => {
+                const date = new Date(post.date).toLocaleDateString("fa-IR", {
+                  year: "numeric",
+                  month: "long",
+                  day: "numeric",
+                });
+                const category = post._embedded?.["wp:term"]?.[0]?.[0]?.name || "عمومی";
+
+                return (
+                  <li key={post.id} className="py-8">
+                    <dl className="relative flex flex-wrap gap-x-3">
+                      <dt className="sr-only">عنوان</dt>
+                      <dd className="w-full flex-none text-lg font-semibold tracking-tight text-foreground">
+                        <Link href={`/posts/${post.slug}`} className="hover:text-primary transition-colors">
+                          <span dangerouslySetInnerHTML={{ __html: post.title?.rendered || "بدون عنوان" }} />
+                          <span aria-hidden="true" className="absolute inset-0" />
+                        </Link>
+                      </dd>
+                      
+                      <dt className="sr-only">خلاصه</dt>
+                      <dd className="mt-2 w-full flex-none text-base text-muted-foreground line-clamp-2">
+                        {post.excerpt?.rendered
+                          ? post.excerpt.rendered.replace(/<[^>]*>/g, "").slice(0, 120) + "..."
+                          : "مطالعه این مقاله رو از دست ندهید."}
+                      </dd>
+                      
+                      <dt className="sr-only">دسته‌بندی</dt>
+                      <dd className="mt-4 text-sm font-medium text-primary">
+                        {category}
+                      </dd>
+                      
+                      <dt className="sr-only">تاریخ</dt>
+                      <dd className="mt-4 flex items-center gap-x-3 text-sm text-muted-foreground">
+                        <svg viewBox="0 0 2 2" aria-hidden="true" className="size-0.5 flex-none fill-muted-foreground">
+                          <circle r={1} cx={1} cy={1} />
+                        </svg>
+                        {date}
+                      </dd>
+                    </dl>
+                  </li>
+                );
+              })}
             </ul>
-            <div className="mt-8 flex border-t border-gray-100 pt-8">
-              <a href="#" className="text-sm/6 font-semibold text-indigo-600 hover:text-indigo-500">
-                View all openings <span aria-hidden="true">&rarr;</span>
-              </a>
+            
+            {/* لینک مشاهده همه */}
+            <div className="mt-8 flex border-t border-border pt-8">
+              <Link
+                href="/blog"
+                className="text-sm font-semibold text-primary hover:text-primary/80 transition-colors"
+              >
+                مشاهده همه مطالب <span aria-hidden="true">&larr;</span>
+              </Link>
             </div>
           </div>
         </div>
       </div>
     </div>
-  )
+  );
 }

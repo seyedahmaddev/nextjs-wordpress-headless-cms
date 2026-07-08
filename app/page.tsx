@@ -5,7 +5,7 @@ import Services from "./components/Services"
 import ProcessTimeline from "./components/ProcessTimeline";
 import Footer from "./components/Footer";
 import Faq from "./components/Faq";
-import Blog from "./blog/page";
+import BlogPreview from "./components/BlogPreview";
 
 export default function Home() {
   return (
@@ -14,7 +14,7 @@ export default function Home() {
       <TechStacks />
       <Services />
       <ProcessTimeline />
-      <Blog />
+      <BlogPreview />
       <Faq />
       <Footer />
     </div>
