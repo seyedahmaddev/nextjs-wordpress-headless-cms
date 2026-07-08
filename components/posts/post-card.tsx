@@ -16,7 +16,7 @@ export function PostCard({ post }: { post: Post }) {
   });
 
   return (
-    <Link
+    <a
       href={`/posts/${post.slug}`}
       className={cn(
         "border p-4 bg-accent/30 rounded-lg group flex justify-between flex-col not-prose gap-8",
@@ -59,6 +59,6 @@ export function PostCard({ post }: { post: Post }) {
           <p>{date}</p>
         </div>
       </div>
-    </Link>
+    </a>
   );
 }
