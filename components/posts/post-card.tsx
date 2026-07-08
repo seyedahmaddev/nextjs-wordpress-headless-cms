@@ -14,12 +14,17 @@ export function PostCard({ post }: { post: Post; }) {
     day: "numeric",
     year: "numeric",
   });
+  const slug = post.slug
+    .normalize("NFC")
+    .trim()
+    .replace(/[\u200B-\u200D\uFEFF]/g, "");
 
-  
   return (
     <Link
-      href={`/posts/${post.slug}`}
-      prefetch={false}
+      href={{
+        pathname: "/posts/[slug]",
+        params: { slug },
+      }}
       className={cn(
         "border p-4 bg-accent/30 rounded-lg group flex justify-between flex-col not-prose gap-8",
         "hover:bg-accent/75 transition-all"
