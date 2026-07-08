@@ -5,7 +5,7 @@ import { Post } from "@/lib/wordpress.d";
 import { cn } from "@/lib/utils";
 import { truncateHtml } from "@/lib/metadata";
 
-export function PostCard({ post }: { post: Post }) {
+export function PostCard({ post }: { post: Post; }) {
   // Use embedded data instead of separate API calls
   const media = post._embedded?.["wp:featuredmedia"]?.[0] ?? null;
   const category = post._embedded?.["wp:term"]?.[0]?.[0] ?? null;
@@ -16,8 +16,9 @@ export function PostCard({ post }: { post: Post }) {
   });
 
   return (
-    <a
+    <Link
       href={`/posts/${post.slug}`}
+      prefetch={false}
       className={cn(
         "border p-4 bg-accent/30 rounded-lg group flex justify-between flex-col not-prose gap-8",
         "hover:bg-accent/75 transition-all"
@@ -59,6 +60,6 @@ export function PostCard({ post }: { post: Post }) {
           <p>{date}</p>
         </div>
       </div>
-    </a>
+    </Link>
   );
 }
