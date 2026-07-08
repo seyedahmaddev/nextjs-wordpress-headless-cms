@@ -10,7 +10,12 @@ import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 
 export async function generateStaticParams() {
-  return await getAllPostSlugs();
+  const allSlugs = await getAllPostSlugs();
+  
+  // اسلاگ‌ها رو کدگذاری کن تا با URL درخواستی یکی بشه
+  return allSlugs.map(({ slug }) => ({
+    slug: encodeURIComponent(slug),
+  }));
 }
 
 export async function generateMetadata({
@@ -39,7 +44,10 @@ export default async function Page({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  const post = await getPostBySlug(slug);
+
+  // اسلاگ کدگذاری شده رو به حالت اولیه (فارسی) برمی‌گردونیم
+  const decodedSlug = decodeURIComponent(slug);
+  const post = await getPostBySlug(decodedSlug);
 
   if (!post) {
     notFound();
