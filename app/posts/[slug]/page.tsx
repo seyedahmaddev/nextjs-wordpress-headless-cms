@@ -10,21 +10,17 @@ import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 
 export async function generateStaticParams() {
-  const allSlugs = await getAllPostSlugs();
-  
-  // اسلاگ‌ها رو کدگذاری کن تا با URL درخواستی یکی بشه
-  return allSlugs.map(({ slug }) => ({
-    slug: encodeURIComponent(slug),
-  }));
+  return await getAllPostSlugs();
 }
 
 export async function generateMetadata({
   params,
 }: {
-  params: Promise<{ slug: string }>;
+  params: Promise<{ slug: string; }>;
 }): Promise<Metadata> {
   const { slug } = await params;
-  const post = await getPostBySlug(slug);
+  const decodedSlug = decodeURIComponent(slug);
+  const post = await getPostBySlug(decodedSlug);
 
   if (!post) {
     return {};
@@ -41,7 +37,7 @@ export async function generateMetadata({
 export default async function Page({
   params,
 }: {
-  params: Promise<{ slug: string }>;
+  params: Promise<{ slug: string; }>;
 }) {
   const { slug } = await params;
 
@@ -68,8 +64,8 @@ export default async function Page({
         <Prose>
           <h1>
             <span
-                dangerouslySetInnerHTML={{ __html: post.title.rendered }}
-              ></span>
+              dangerouslySetInnerHTML={{ __html: post.title.rendered }}
+            ></span>
           </h1>
           <div className="flex justify-between items-center gap-4 text-sm mb-4">
             <h5>
