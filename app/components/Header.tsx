@@ -24,25 +24,25 @@ import {
 import { ChevronDownIcon, PhoneIcon, PlayCircleIcon } from '@heroicons/react/20/solid'
 
 const products = [
-  { name: 'Analytics', description: 'Get a better understanding of your traffic', href: '#', icon: ChartPieIcon },
-  { name: 'Engagement', description: 'Speak directly to your customers', href: '#', icon: CursorArrowRaysIcon },
-  { name: 'Security', description: 'Your customers’ data will be safe and secure', href: '#', icon: FingerPrintIcon },
-  { name: 'Integrations', description: 'Connect with third-party tools', href: '#', icon: SquaresPlusIcon },
-  { name: 'Automations', description: 'Build strategic funnels that will convert', href: '#', icon: ArrowPathIcon },
+  { name: 'آنالیز سایت', description: 'وضعیت وب سایت خودتان را بهتر درک کنید', href: '#', icon: ChartPieIcon },
+  { name: 'بهینه سازی سایت', description: 'وب سایت خودتان را سئو و بهینه کنید', href: '#', icon: CursorArrowRaysIcon },
+  { name: 'امنیت وب سایت', description: 'امنیت وب سایت خودتان را تامین کنید', href: '#', icon: FingerPrintIcon },
+  { name: 'سازگاری و شبکه اجتماعی', description: 'اتصال به ابزارهای آنلاین و شبکه اجتماعی', href: '#', icon: SquaresPlusIcon },
+  { name: 'اتوماسیون', description: 'خودکارسازی پست محتوا و اتوریپلای چت', href: '#', icon: ArrowPathIcon },
 ]
 const callsToAction = [
-  { name: 'Watch demo', href: '#', icon: PlayCircleIcon },
-  { name: 'Contact sales', href: '#', icon: PhoneIcon },
+  { name: 'پیام مستقیم در بله', href: 'https://ble.ir/seyedahmaddeveloper', icon: PlayCircleIcon },
+  { name: 'پیامک و تماس', href: 'tel:09034260454', icon: PhoneIcon },
 ]
 const company = [
-  { name: 'About us', href: '#' },
+  { name: 'درباره من', href: '#' },
   { name: 'Careers', href: '#' },
   { name: 'Support', href: '#' },
   { name: 'Press', href: '#' },
-  { name: 'Blog', href: '/blog' },
+  { name: 'وبلاگ', href: '/blog' },
 ]
 
-export default function Example() {
+export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
   return (
@@ -153,7 +153,7 @@ export default function Example() {
         <DialogPanel className="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
           <div className="flex items-center justify-between">
             <a href="#" className="-m-1.5 p-1.5">
-              <span className="sr-only">Your Company</span>
+              <span className="sr-only">سیداحمد</span>
               <img
                 alt=""
                 src="https://tailwindui.com/plus-assets/img/logos/mark.svg?color=indigo&shade=600"
@@ -165,7 +165,7 @@ export default function Example() {
               onClick={() => setMobileMenuOpen(false)}
               className="-m-2.5 rounded-md p-2.5 text-gray-700"
             >
-              <span className="sr-only">Close menu</span>
+              <span className="sr-only">بستن منو</span>
               <XMarkIcon aria-hidden="true" className="size-6" />
             </button>
           </div>

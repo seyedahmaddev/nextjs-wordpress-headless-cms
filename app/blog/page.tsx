@@ -25,8 +25,8 @@ import { SearchInput } from "@/components/posts/search-input";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Blog Posts",
-  description: "Browse all our blog posts",
+  title: "پستهای وبلاگ سیداحمد",
+  description: "وبلاگ طراحی سایت و اپلیکیشن و زبان برنامه نویسی و توسعه وب با نکست جی اس و ری اکت و وردپرس",
 };
 
 export const dynamic = "auto";

@@ -6,8 +6,8 @@ import type { Metadata } from "next";
 export const revalidate = 3600;
 
 export const metadata: Metadata = {
-  title: "All Authors",
-  description: "Browse all authors of our blog posts",
+  title: "نویسندگان سایت",
+  description: "نویسندگان سایت طراحی سایت و توسعه وب سیداحمد",
   alternates: {
     canonical: "/posts/authors",
   },
