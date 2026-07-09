@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   title: "All Tags",
   description: "Browse all tags of our blog posts",
   alternates: {
-    canonical: "/posts/tags",
+    canonical: "/tags",
   },
 };
 

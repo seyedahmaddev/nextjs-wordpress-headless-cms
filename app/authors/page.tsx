@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   title: "نویسندگان سایت",
   description: "نویسندگان سایت طراحی سایت و توسعه وب سیداحمد",
   alternates: {
-    canonical: "/posts/authors",
+    canonical: "/authors",
   },
 };
 
