@@ -36,9 +36,9 @@ const callsToAction = [
 ]
 const company = [
   { name: 'درباره من', href: '#' },
-  { name: 'Careers', href: '#' },
-  { name: 'Support', href: '#' },
-  { name: 'Press', href: '#' },
+  { name: 'همکاری', href: '#' },
+  { name: 'پشتیبانی', href: '#' },
+  { name: 'کانال بله', href: 'https://ble.ir/seyedahmaddev' },
   { name: 'وبلاگ', href: '/blog' },
 ]
 
@@ -64,7 +64,7 @@ export default function Header() {
             onClick={() => setMobileMenuOpen(true)}
             className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700"
           >
-            <span className="sr-only">Open main menu</span>
+            <span className="sr-only">باز کردن منو اصلی</span>
             <Bars3Icon aria-hidden="true" className="size-6" />
           </button>
         </div>
@@ -114,7 +114,7 @@ export default function Header() {
           </Popover>
 
           <a href="#" className="text-sm/6 font-semibold text-gray-900">
-            Features
+            خدمات
           </a>
           <a href="#" className="text-sm/6 font-semibold text-gray-900">
             Marketplace

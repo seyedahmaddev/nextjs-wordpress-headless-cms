@@ -31,7 +31,7 @@ export async function generateMetadata({
     title: post.title.rendered,
     description: stripHtml(post.excerpt.rendered),
     slug: post.slug,
-    basePath: "/",
+    // basePath: "/",
   });
 }
 
