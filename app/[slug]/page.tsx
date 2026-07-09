@@ -1,4 +1,4 @@
-import { getPostBySlug, getAllPostSlugs } from "@/lib/wordpress";
+import { getPostBySlug, getAllPostSlugs, getAuthorById } from "@/lib/wordpress";
 import { generateContentMetadata, stripHtml } from "@/lib/metadata";
 import Image from "next/image";
 
@@ -50,7 +50,17 @@ export default async function Page({
     notFound();
   }
 
-  const author = post._embedded?.author?.[0];
+  // ✅ دریافت نویسنده با آی‌دی
+  let author = null;
+  if (post.author) {
+    try {
+      author = await getAuthorById(post.author);
+    } catch (error) {
+      console.error("خطا در دریافت نویسنده:", error);
+    }
+  }
+
+  // const author = post._embedded?.author?.[0];
   const featuredMedia = post._embedded?.["wp:featuredmedia"]?.[0];
   const category = post._embedded?.["wp:term"]?.[0]?.[0];
   const date = new Date(post.date).toLocaleDateString("fa-IR", {
@@ -75,7 +85,7 @@ export default async function Page({
                 <>
                   {" "}توسط{" "}
                   <span>
-                    <Link href={`/posts/?author=${author.id}`}>{author.name}</Link>
+                    <Link href={`/?author=${author.id}`}>{author.name}</Link>
                   </span>
                 </>
               )}
