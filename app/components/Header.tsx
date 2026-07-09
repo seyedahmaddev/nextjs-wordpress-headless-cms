@@ -1,6 +1,6 @@
-'use client'
+'use client';
 
-import { useState } from 'react'
+import { useState } from 'react';
 import {
   Dialog,
   DialogPanel,
@@ -11,7 +11,7 @@ import {
   PopoverButton,
   PopoverGroup,
   PopoverPanel,
-} from '@headlessui/react'
+} from '@headlessui/react';
 import {
   ArrowPathIcon,
   Bars3Icon,
@@ -20,8 +20,10 @@ import {
   FingerPrintIcon,
   SquaresPlusIcon,
   XMarkIcon,
-} from '@heroicons/react/24/outline'
-import { ChevronDownIcon, PhoneIcon, PlayCircleIcon } from '@heroicons/react/20/solid'
+} from '@heroicons/react/24/outline';
+import { ChevronDownIcon, PhoneIcon, PlayCircleIcon } from '@heroicons/react/20/solid';
+import Link from 'next/link';
+import Image from 'next/image';
 
 const products = [
   { name: 'آنالیز سایت', description: 'وضعیت وب سایت خودتان را بهتر درک کنید', href: '#', icon: ChartPieIcon },
@@ -29,34 +31,37 @@ const products = [
   { name: 'امنیت وب سایت', description: 'امنیت وب سایت خودتان را تامین کنید', href: '#', icon: FingerPrintIcon },
   { name: 'سازگاری و شبکه اجتماعی', description: 'اتصال به ابزارهای آنلاین و شبکه اجتماعی', href: '#', icon: SquaresPlusIcon },
   { name: 'اتوماسیون', description: 'خودکارسازی پست محتوا و اتوریپلای چت', href: '#', icon: ArrowPathIcon },
-]
+];
 const callsToAction = [
   { name: 'پیام مستقیم در بله', href: 'https://ble.ir/seyedahmaddeveloper', icon: PlayCircleIcon },
   { name: 'پیامک و تماس', href: 'tel:09034260454', icon: PhoneIcon },
-]
+];
 const company = [
   { name: 'درباره من', href: '#' },
   { name: 'همکاری', href: '#' },
   { name: 'پشتیبانی', href: '#' },
   { name: 'کانال بله', href: 'https://ble.ir/seyedahmaddev' },
   { name: 'وبلاگ', href: '/blog' },
-]
+];
 
 export default function Header() {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
     <header className="bg-white">
       <nav aria-label="Global" className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8">
         <div className="flex lg:flex-1">
-          <a href="#" className="-m-1.5 p-1.5">
+          <Link href="/" className="-m-1.5 p-1.5">
             <span className="sr-only">سیداحمد</span>
-            <img
-              alt=""
+            <Image
               src="/logos/Seyed-ahmad-dev3-150x150.png"
-              className="h-8 w-auto"
+              alt="سید احمد | توسعه‌دهنده فرانت‌اند"
+              width={150}
+              height={150}
+              className="hidden md:block h-8 w-auto"
+              priority
             />
-          </a>
+          </Link>
         </div>
         <div className="flex lg:hidden">
           <button
@@ -69,6 +74,9 @@ export default function Header() {
           </button>
         </div>
         <PopoverGroup className="hidden lg:flex lg:gap-x-12">
+          <Link href="/" className="text-sm/6 font-semibold text-gray-900">
+            خانه
+          </Link>
           <Popover className="relative">
             <PopoverButton className="flex items-center gap-x-1 text-sm/6 font-semibold text-gray-900">
               خدمات
@@ -113,16 +121,14 @@ export default function Header() {
             </PopoverPanel>
           </Popover>
 
-          <a href="#" className="text-sm/6 font-semibold text-gray-900">
-            خدمات
-          </a>
-          <a href="#" className="text-sm/6 font-semibold text-gray-900">
-            Marketplace
-          </a>
+
+          <Link href="#" className="text-sm/6 font-semibold text-gray-900">
+            وبلاگ
+          </Link>
 
           <Popover className="relative">
             <PopoverButton className="flex items-center gap-x-1 text-sm/6 font-semibold text-gray-900">
-              Company
+              ارتباط با من
               <ChevronDownIcon aria-hidden="true" className="size-5 flex-none text-gray-400" />
             </PopoverButton>
 
@@ -143,8 +149,8 @@ export default function Header() {
           </Popover>
         </PopoverGroup>
         <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-          <a href="#" className="text-sm/6 font-semibold text-gray-900">
-            Log in <span aria-hidden="true">&rarr;</span>
+          <a href="https://ble.ir/seyedahmaddeveloper" className="text-sm/6 font-semibold text-gray-900">
+            تماس در بله<span aria-hidden="true">&rarr;</span>
           </a>
         </div>
       </nav>
@@ -152,14 +158,17 @@ export default function Header() {
         <div className="fixed inset-0 z-10" />
         <DialogPanel className="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
           <div className="flex items-center justify-between">
-            <a href="#" className="-m-1.5 p-1.5">
+            <Link href="/" className="-m-1.5 p-1.5">
               <span className="sr-only">سیداحمد</span>
-              <img
-                alt=""
-                src="https://tailwindui.com/plus-assets/img/logos/mark.svg?color=indigo&shade=600"
-                className="h-8 w-auto"
+              <Image
+                src="/logos/Seyed-ahmad-dev3-150x150.png"
+                alt="سید احمد |طراحی سایت و توسعه‌دهنده فرانت‌اند"
+                width={150}
+                height={150}
+                className="block md:hidden h-8 w-auto"
+                priority
               />
-            </a>
+            </Link>
             <button
               type="button"
               onClick={() => setMobileMenuOpen(false)}
@@ -206,7 +215,7 @@ export default function Header() {
 
                 <Disclosure as="div" className="-mx-3">
                   <DisclosureButton className="group flex w-full items-center justify-between rounded-lg py-2 pr-3.5 pl-3 text-base/7 font-semibold text-gray-900 hover:bg-gray-50">
-                    Company
+                    درباره من
                     <ChevronDownIcon aria-hidden="true" className="size-5 flex-none group-data-open:rotate-180" />
                   </DisclosureButton>
                   <DisclosurePanel className="mt-2 space-y-2">
@@ -225,10 +234,10 @@ export default function Header() {
               </div>
               <div className="py-6">
                 <a
-                  href="#"
+                  href="https://ble.ir/seyedahmaddeveloper"
                   className="-mx-3 block rounded-lg px-3 py-2.5 text-base/7 font-semibold text-gray-900 hover:bg-gray-50"
                 >
-                  Log in
+                  تماس در بله
                 </a>
               </div>
             </div>
@@ -236,5 +245,5 @@ export default function Header() {
         </DialogPanel>
       </Dialog>
     </header>
-  )
+  );
 }
