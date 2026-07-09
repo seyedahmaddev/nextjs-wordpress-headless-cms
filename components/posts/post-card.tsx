@@ -9,7 +9,7 @@ export function PostCard({ post }: { post: Post }) {
   // Use embedded data instead of separate API calls
   const media = post._embedded?.["wp:featuredmedia"]?.[0] ?? null;
   const category = post._embedded?.["wp:term"]?.[0]?.[0] ?? null;
-  const date = new Date(post.date).toLocaleDateString("en-US", {
+  const date = new Date(post.date).toLocaleDateString("fa-IR", {
     month: "long",
     day: "numeric",
     year: "numeric",

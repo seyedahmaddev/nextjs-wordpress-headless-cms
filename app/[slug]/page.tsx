@@ -53,7 +53,7 @@ export default async function Page({
   const author = post._embedded?.author?.[0];
   const featuredMedia = post._embedded?.["wp:featuredmedia"]?.[0];
   const category = post._embedded?.["wp:term"]?.[0]?.[0];
-  const date = new Date(post.date).toLocaleDateString("en-US", {
+  const date = new Date(post.date).toLocaleDateString("fa-IR", {
     month: "long",
     day: "numeric",
     year: "numeric",

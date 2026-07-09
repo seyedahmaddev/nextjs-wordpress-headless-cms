@@ -77,7 +77,7 @@ export default async function Page({
       <Container>
         <div className="space-y-8">
           <Prose>
-            <h2>All Posts</h2>
+            <h2>همه پستهای وبلاگ</h2>
             <p className="text-muted-foreground">
               {total} {total === 1 ? "post" : "posts"} found
               {search && " matching your search"}
@@ -105,7 +105,7 @@ export default async function Page({
             </div>
           ) : (
             <div className="h-24 w-full border rounded-lg bg-accent/25 flex items-center justify-center">
-              <p>No posts found</p>
+              <p>فعلا پستی یافت نشد</p>
             </div>
           )}
 
