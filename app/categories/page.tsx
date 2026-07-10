@@ -6,8 +6,8 @@ import type { Metadata } from "next";
 export const revalidate = 3600;
 
 export const metadata: Metadata = {
-  title: "All Categories",
-  description: "Browse all categories of our blog posts",
+  title: "همه موضوعات",
+  description: "موضوعات وبلاگ طراحی سایت سیداحمد را مشاهده کنید",
   alternates: {
     canonical: "/categories",
   },
@@ -18,7 +18,7 @@ export default async function Page() {
 
   return (
     <ArchiveList<Category>
-      title="All Categories"
+      title="همه موضوعات"
       items={categories}
       getItemHref={(c) => `/blog/?category=${c.id}`}
       getItemLabel={(c) => c.name}

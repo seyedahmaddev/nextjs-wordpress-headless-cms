@@ -30,18 +30,13 @@ export default function RootLayout({
       lang="fa"
       dir="rtl"
       suppressHydrationWarning
-      // کلاس فونت رو از اینجا حذف می‌کنیم چون در body اعمال می‌شه
     >
       <head>
-        {/* 
-          دیگر نیازی به لینک CDN وزیرمتن نیست.
-          فونت از طریق @font-face در globals.css بارگذاری می‌شود.
-        */}
+        
       </head>
       <body
         className={cn(
           "min-h-screen font-sans antialiased"
-          // کلاس font-vazirmatn رو حذف می‌کنیم
         )}
       >
         <ThemeProvider
