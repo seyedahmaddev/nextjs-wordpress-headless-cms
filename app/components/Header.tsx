@@ -33,8 +33,8 @@ const products = [
   { name: 'اتوماسیون', description: 'خودکارسازی پست محتوا و اتوریپلای چت', href: '#', icon: ArrowPathIcon },
 ];
 const callsToAction = [
-  { name: 'پیام مستقیم در بله', href: 'https://ble.ir/seyedahmaddeveloper', icon: PlayCircleIcon },
-  { name: 'پیامک و تماس', href: 'tel:09034260454', icon: PhoneIcon },
+  { name: 'پیام مستقیم در بله', href: 'https://ble.ir/seyedahmaddeveloper', icon: PlayCircleIcon, external: true },
+  { name: 'پیامک و تماس', href: 'tel:09034260454', icon: PhoneIcon, external: true },
 ];
 const company = [
   { name: 'درباره من', href: '#' },
@@ -111,6 +111,8 @@ export default function Header() {
                   <a
                     key={item.name}
                     href={item.href}
+                    target={item.href.startsWith('http') ? '_blank' : undefined}
+                    rel={item.href.startsWith('http') ? 'noopener noreferrer' : undefined}
                     className="flex items-center justify-center gap-x-2.5 p-3 text-sm/6 font-semibold text-gray-900 hover:bg-gray-100"
                   >
                     <item.icon aria-hidden="true" className="size-5 flex-none text-gray-400" />
@@ -149,10 +151,10 @@ export default function Header() {
           </Popover>
         </PopoverGroup>
         <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-          <a href="https://ble.ir/seyedahmaddeveloper" 
-          target='_blank'
-          rel="noopener noreferrer"
-          className="text-sm/6 font-semibold text-gray-900">
+          <a href="https://ble.ir/seyedahmaddeveloper"
+            target='_blank'
+            rel="noopener noreferrer"
+            className="text-sm/6 font-semibold text-gray-900">
             تماس در بله<span aria-hidden="true">&rarr;</span>
           </a>
         </div>
@@ -160,7 +162,7 @@ export default function Header() {
       <Dialog open={mobileMenuOpen} onClose={setMobileMenuOpen} className="lg:hidden">
         <div className="fixed inset-0 z-10" />
         <DialogPanel className="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
-          <div className="flex items-center justify-between">
+          <div className="flex items-center justify-between flex-row-reverse">
             <Link href="/" className="-m-1.5 p-1.5">
               <span className="sr-only">سیداحمد</span>
               <Image
@@ -198,14 +200,18 @@ export default function Header() {
                   </DisclosureButton>
                   <DisclosurePanel className="mt-2 space-y-2">
                     {[...products, ...callsToAction].map((item) => (
-                      <DisclosureButton
-                        key={item.name}
-                        as="a"
-                        href={item.href}
-                        className="block rounded-lg py-2 pr-3 pl-6 text-sm/7 font-semibold text-gray-900 hover:bg-gray-50"
-                      >
-                        {item.name}
-                      </DisclosureButton>
+                      // تشخیص اینکه لینک خارجی هست یا نه
+                      const isExternal = item.href.startsWith('http') || item.href.startsWith('tel:');
+                    <DisclosureButton
+                      key={item.name}
+                      as="a"
+                      href={item.href}
+                      target={isExternal ? '_blank' : undefined}
+                      rel={isExternal ? 'noopener noreferrer' : undefined}
+                      className="block rounded-lg py-2 pr-3 pl-6 text-sm/7 font-semibold text-gray-900 hover:bg-gray-50"
+                    >
+                      {item.name}
+                    </DisclosureButton>
                     ))}
                   </DisclosurePanel>
                 </Disclosure>
@@ -216,7 +222,7 @@ export default function Header() {
                 >
                   وبلاگ
                 </Link>
-                
+
 
                 <Disclosure as="div" className="-mx-3">
                   <DisclosureButton className="group flex w-full items-center justify-between rounded-lg py-2 pr-3.5 pl-3 text-base/7 font-semibold text-gray-900 hover:bg-gray-50">
