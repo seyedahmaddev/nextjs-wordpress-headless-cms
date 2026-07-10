@@ -40,7 +40,7 @@ const company = [
   { name: 'درباره من', href: '#' },
   { name: 'همکاری', href: '#' },
   { name: 'پشتیبانی', href: '#' },
-  { name: 'کانال بله', href: 'https://ble.ir/seyedahmaddev' },
+  { name: 'تماس با من', href: '#' },
   { name: 'وبلاگ', href: '/blog' },
 ];
 
@@ -137,19 +137,22 @@ export default function Header() {
               className="absolute top-full -left-8 z-10 mt-3 w-56 rounded-xl bg-white p-2 ring-1 shadow-lg ring-gray-900/5 transition data-closed:translate-y-1 data-closed:opacity-0 data-enter:duration-200 data-enter:ease-out data-leave:duration-150 data-leave:ease-in"
             >
               {company.map((item) => (
-                <a
+                <Link
                   key={item.name}
                   href={item.href}
                   className="block rounded-lg px-3 py-2 text-sm/6 font-semibold text-gray-900 hover:bg-gray-50"
                 >
                   {item.name}
-                </a>
+                </Link>
               ))}
             </PopoverPanel>
           </Popover>
         </PopoverGroup>
         <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-          <a href="https://ble.ir/seyedahmaddeveloper" className="text-sm/6 font-semibold text-gray-900">
+          <a href="https://ble.ir/seyedahmaddeveloper" 
+          target='_blank'
+          rel="noopener noreferrer"
+          className="text-sm/6 font-semibold text-gray-900">
             تماس در بله<span aria-hidden="true">&rarr;</span>
           </a>
         </div>
@@ -181,9 +184,16 @@ export default function Header() {
           <div className="mt-6 flow-root">
             <div className="-my-6 divide-y divide-gray-500/10">
               <div className="space-y-2 py-6">
+
+                <Link
+                  href="/"
+                  className="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50"
+                >
+                  خانه
+                </Link>
                 <Disclosure as="div" className="-mx-3">
                   <DisclosureButton className="group flex w-full items-center justify-between rounded-lg py-2 pr-3.5 pl-3 text-base/7 font-semibold text-gray-900 hover:bg-gray-50">
-                    Product
+                    خدمات
                     <ChevronDownIcon aria-hidden="true" className="size-5 flex-none group-data-open:rotate-180" />
                   </DisclosureButton>
                   <DisclosurePanel className="mt-2 space-y-2">
@@ -200,18 +210,13 @@ export default function Header() {
                   </DisclosurePanel>
                 </Disclosure>
 
-                <a
-                  href="#"
+                <Link
+                  href="/blog"
                   className="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50"
                 >
-                  Features
-                </a>
-                <a
-                  href="#"
-                  className="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50"
-                >
-                  Marketplace
-                </a>
+                  وبلاگ
+                </Link>
+                
 
                 <Disclosure as="div" className="-mx-3">
                   <DisclosureButton className="group flex w-full items-center justify-between rounded-lg py-2 pr-3.5 pl-3 text-base/7 font-semibold text-gray-900 hover:bg-gray-50">
@@ -222,7 +227,7 @@ export default function Header() {
                     {company.map((item) => (
                       <DisclosureButton
                         key={item.name}
-                        as="a"
+                        as="Link"
                         href={item.href}
                         className="block rounded-lg py-2 pr-3 pl-6 text-sm/7 font-semibold text-gray-900 hover:bg-gray-50"
                       >
@@ -235,6 +240,8 @@ export default function Header() {
               <div className="py-6">
                 <a
                   href="https://ble.ir/seyedahmaddeveloper"
+                  target='_blank'
+                  rel="noopener noreferrer"
                   className="-mx-3 block rounded-lg px-3 py-2.5 text-base/7 font-semibold text-gray-900 hover:bg-gray-50"
                 >
                   تماس در بله
