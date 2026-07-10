@@ -1,8 +1,7 @@
 import "./globals.css";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { ThemeProvider } from "@/components/theme/theme-provider";
-import { Nav } from "@/components/layout/nav";
-import { Footer } from "@/components/layout/footer";
+import Footer from "@/app/components/Footer";
 import { Analytics } from "@vercel/analytics/react";
 import { siteConfig } from "@/site.config";
 import { cn } from "@/lib/utils";
