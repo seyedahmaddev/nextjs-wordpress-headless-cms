@@ -199,20 +199,21 @@ export default function Header() {
                     <ChevronDownIcon aria-hidden="true" className="size-5 flex-none group-data-open:rotate-180" />
                   </DisclosureButton>
                   <DisclosurePanel className="mt-2 space-y-2">
-                    {[...products, ...callsToAction].map((item) => (
-                      // تشخیص اینکه لینک خارجی هست یا نه
+                    {[...products, ...callsToAction].map((item) => {
                       const isExternal = item.href.startsWith('http') || item.href.startsWith('tel:');
-                    <DisclosureButton
-                      key={item.name}
-                      as="a"
-                      href={item.href}
-                      target={isExternal ? '_blank' : undefined}
-                      rel={isExternal ? 'noopener noreferrer' : undefined}
-                      className="block rounded-lg py-2 pr-3 pl-6 text-sm/7 font-semibold text-gray-900 hover:bg-gray-50"
-                    >
-                      {item.name}
-                    </DisclosureButton>
-                    ))}
+                      return (
+                        <DisclosureButton
+                          key={item.name}
+                          as="a"
+                          href={item.href}
+                          target={isExternal ? '_blank' : undefined}
+                          rel={isExternal ? 'noopener noreferrer' : undefined}
+                          className="block rounded-lg py-2 pr-3 pl-6 text-sm/7 font-semibold text-gray-900 hover:bg-gray-50"
+                        >
+                          {item.name}
+                        </DisclosureButton>
+                      );
+                    })}
                   </DisclosurePanel>
                 </Disclosure>
 
