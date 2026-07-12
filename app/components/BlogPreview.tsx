@@ -102,7 +102,7 @@ export default async function BlogPreview() {
             {/* لینک مشاهده همه */}
             <div className="mt-8 flex border-t border-border pt-8">
               <Link
-                href="/"
+                href="/blog"
                 className="text-sm font-semibold text-primary hover:text-primary/80 transition-colors"
               >
                 مشاهده همه مطالب <span aria-hidden="true">&larr;</span>
