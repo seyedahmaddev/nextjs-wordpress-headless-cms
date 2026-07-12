@@ -36,11 +36,11 @@ export function FilterPosts({
     newParams.delete("search");
     value === "all" ? newParams.delete(type) : newParams.set(type, value);
 
-    router.push(`/posts?${newParams.toString()}`);
+    router.push(`/${newParams.toString()}`);
   };
 
   const handleResetFilters = () => {
-    router.push("/posts");
+    router.push("/");
   };
 
   const hasTags = tags.length > 0;
