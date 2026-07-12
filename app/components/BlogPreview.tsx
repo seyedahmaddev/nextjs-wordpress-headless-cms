@@ -1,12 +1,11 @@
 // components/posts/BlogPreview.tsx
 import { getRecentPosts } from "@/lib/wordpress";
-import { PostCard } from "@/components/posts/post-card"
 import Link from "next/link";
 import Image from "next/image";
 
 // تصویر شاخص (می‌تونی از وردپرس یا استاتیک استفاده کنی)
 // من یه عکس پیش‌فرض از unsplash گذاشتم، اما می‌تونی از featured media اولین پست استفاده کنی
-const defaultImage = "https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=800&h=600&fit=crop";
+const defaultImage = "/default-picture.jpeg";
 
 export default async function BlogPreview() {
   // دریافت ۳ پست آخر (یا هر تعداد که می‌خوای)
@@ -69,7 +68,7 @@ export default async function BlogPreview() {
                     <dl className="relative flex flex-wrap gap-x-3">
                       <dt className="sr-only">عنوان</dt>
                       <dd className="w-full flex-none text-lg font-semibold tracking-tight text-foreground">
-                        <Link href={`/posts/${post.slug}`} className="hover:text-primary transition-colors">
+                        <Link href={`/${post.slug}`} className="hover:text-primary transition-colors">
                           <span dangerouslySetInnerHTML={{ __html: post.title?.rendered || "بدون عنوان" }} />
                           <span aria-hidden="true" className="absolute inset-0" />
                         </Link>
