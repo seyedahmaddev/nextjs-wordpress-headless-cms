@@ -16,7 +16,6 @@ export default function Home() {
       <ProcessTimeline />
       <BlogPreview />
       <Faq />
-      <Footer />
     </div>
   );
 }

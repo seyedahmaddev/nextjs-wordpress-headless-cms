@@ -6,8 +6,8 @@ import type { Metadata } from "next";
 export const revalidate = 3600;
 
 export const metadata: Metadata = {
-  title: "All Tags",
-  description: "Browse all tags of our blog posts",
+  title: "همه برچسبها",
+  description: "همه برچسبهای وبلاگ را پیمایش کنید",
   alternates: {
     canonical: "/tags",
   },
@@ -18,9 +18,9 @@ export default async function Page() {
 
   return (
     <ArchiveList<Tag>
-      title="All Tags"
+      title="همه برچسبها"
       items={tags}
-      getItemHref={(t) => `/posts/?tag=${t.id}`}
+      getItemHref={(t) => `/blog/?tag=${t.id}`}
       getItemLabel={(t) => t.name}
       emptyMessage="No tags available yet."
     />
