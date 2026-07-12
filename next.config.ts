@@ -35,5 +35,5 @@ const nextConfig: NextConfig = {
     ];
   },
 };
-
+console.log("WORDPRESS_HOSTNAME =", process.env.WORDPRESS_HOSTNAME);
 export default nextConfig;

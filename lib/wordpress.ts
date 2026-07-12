@@ -141,10 +141,15 @@ async function wordpressFetchPaginatedGraceful<T>(
 
   try {
     return await wordpressFetchPaginated<T[]>(path, query, tags);
-  } catch {
-    console.warn(`WordPress paginated fetch failed for ${path}`);
-    return emptyResponse;
-  }
+  } 
+  // catch {
+  //   console.warn(`WordPress paginated fetch failed for ${path}`);
+  //   return emptyResponse;
+  // }
+  catch (error) {
+  console.error("WordPress Error:", error);
+  throw error;
+}
 }
 
 // Paginated posts with filter support
