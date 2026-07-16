@@ -15,10 +15,10 @@ const navigation = {
   ],
 
   links: [
-    { name: "درباره من", href: "#" },
-    { name: "وبلاگ", href: "#" },
+    { name: "درباره من", href: "/aboutme/" },
+    { name: "وبلاگ", href: "/blog" },
     { name: "نمونه‌کارها", href: "#" },
-    { name: "تماس با من", href: "#" },
+    { name: "تماس با من", href: "/مشاوره-طراحی-سایت/" },
   ],
 
   social: [
@@ -28,8 +28,8 @@ const navigation = {
       icon: BaleIcon, // TODO: با LinkedinIcon جایگزین کن
     },
     {
-      name: "بله",
-      href: "لینک چت شخصی بله",
+      name: "کانال بله",
+      href: "https://ble.ir/seyedahmaddev",
       icon: BaleIcon,
     },
     {
