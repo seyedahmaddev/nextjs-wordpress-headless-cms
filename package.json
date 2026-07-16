@@ -11,6 +11,7 @@
     "test:watch": "vitest"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-free": "^7.3.1",
     "@headlessui/react": "^2.2.10",
     "@heroicons/react": "^2.2.0",
     "@hookform/resolvers": "^3.10.0",
@@ -34,6 +35,7 @@
     "react": "19.2.4",
     "react-dom": "19.2.4",
     "react-hook-form": "^7.71.2",
+    "resend": "^6.17.2",
     "tailwind-merge": "^2.6.1",
     "use-debounce": "^10.1.0",
     "zod": "^3.25.76"

@@ -64,29 +64,63 @@ export default function ConsultingPage() {
     }
   };
 
-  const handleGeneralSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    console.log('📩 پیام عمومی:', generalForm);
-    // TODO: ارسال به API
-    alert('پیام شما با موفقیت ارسال شد!');
-    setGeneralForm({ name: '', email: '', message: '' });
-  };
-
-  const handleOrderSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    console.log('📦 سفارش پروژه:', orderForm);
-    // TODO: ارسال به API
-    alert('درخواست شما ثبت شد. به زودی با شما تماس می‌گیریم.');
-    setOrderForm({
-      name: '',
-      email: '',
-      phone: '',
-      projectTypes: [],
-      message: '',
-      similarSite: '',
-      previousSite: '',
+ const handleGeneralSubmit = async (e: React.FormEvent) => {
+  e.preventDefault();
+  try {
+    const res = await fetch('/api/contact', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        type: 'general',
+        ...generalForm,
+      }),
     });
-  };
+
+    const data = await res.json();
+    if (res.ok) {
+      alert('✅ پیام شما با موفقیت ارسال شد!');
+      setGeneralForm({ name: '', email: '', message: '' });
+    } else {
+      alert(`❌ خطا: ${data.error || 'مشکلی پیش آمد.'}`);
+    }
+  } catch (error) {
+    console.error('خطا در ارسال:', error);
+    alert('❌ خطای شبکه. لطفاً دوباره تلاش کنید.');
+  }
+};
+
+ const handleOrderSubmit = async (e: React.FormEvent) => {
+  e.preventDefault();
+  try {
+    const res = await fetch('/api/contact', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        type: 'order',
+        ...orderForm,
+      }),
+    });
+
+    const data = await res.json();
+    if (res.ok) {
+      alert('✅ درخواست شما ثبت شد. به زودی با شما تماس می‌گیریم.');
+      setOrderForm({
+        name: '',
+        email: '',
+        phone: '',
+        projectTypes: [],
+        message: '',
+        similarSite: '',
+        previousSite: '',
+      });
+    } else {
+      alert(`❌ خطا: ${data.error || 'مشکلی پیش آمد.'}`);
+    }
+  } catch (error) {
+    console.error('خطا در ارسال:', error);
+    alert('❌ خطای شبکه. لطفاً دوباره تلاش کنید.');
+  }
+};
 
   // ======================== JSX ========================
   return (
@@ -104,7 +138,7 @@ export default function ConsultingPage() {
         </div>
 
         {/* ---------- توضیحات بالای صفحه ---------- */}
-        <div className="prose prose-lg max-w-none text-gray-700 mb-12">
+        <div className="prose prose-lg max-w-none text-gray-700 mb-12 mx-24">
           <p>
             شما در این صفحه میتوانید برای مشاوره طراحی سایت به صورت عمومی و اختصاصی با استفاده
             از فرم‌های موجود اقدام کنید. با استفاده از فرم ارسال پیام عمومی میتوانید بدون
@@ -188,7 +222,7 @@ export default function ConsultingPage() {
                   <i className="fas fa-life-ring text-indigo-600 text-xl mt-1"></i>
                   <div>
                     <h3 className="font-semibold">۰۲۱-۲۶۶۱۱۳۴۷</h3>
-                    <p className="text-gray-600">hi@seyedahmaddev.ir</p>
+                    <p className="text-gray-600">SeyedAhmadDev@gmail.com</p>
                   </div>
                 </div>
               </div>
@@ -334,7 +368,7 @@ export default function ConsultingPage() {
             <Image
               src="/assets/Reactjs.jpg"
               alt="مشاوره طراحی سایت با ری اکت و نکست"
-              width={715}
+              width={480}
               height={402}
               className="w-full h-auto"
             />
@@ -478,15 +512,7 @@ export default function ConsultingPage() {
           </form>
         </section>
 
-        {/* ---------- بخش RSS (نمونه) ---------- */}
-        <div className="bg-gray-50 rounded-2xl p-8 shadow-sm">
-          <h3 className="text-xl font-bold text-gray-900 mb-4">نوشته‌های من در ویرگول</h3>
-          <ul className="space-y-2 text-gray-700">
-            <li>• <a href="#" className="text-indigo-600 hover:underline">جنوب جنگ شده، زلزله و یا سیل نیست</a></li>
-            <li>• <a href="#" className="text-indigo-600 hover:underline">اینترنت آزاد شد اینترنت بین الملل وصل شد</a></li>
-            <li>• <a href="#" className="text-indigo-600 hover:underline">🍫 دسترسی به اینترنت آزاد، شکلات تلخ</a></li>
-          </ul>
-        </div>
+        
       </div>
     </main>
   );
