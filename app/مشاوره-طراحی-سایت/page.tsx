@@ -138,7 +138,7 @@ export default function ConsultingPage() {
         </div>
 
         {/* ---------- توضیحات بالای صفحه ---------- */}
-        <div className="prose prose-lg max-w-none text-gray-700 mb-12 mx-24">
+        <div className="prose prose-lg text-gray-700 mb-12 px-6 md:px-12 lg:px-24 max-w-4xl mx-auto">
           <p>
             شما در این صفحه میتوانید برای مشاوره طراحی سایت به صورت عمومی و اختصاصی با استفاده
             از فرم‌های موجود اقدام کنید. با استفاده از فرم ارسال پیام عمومی میتوانید بدون
@@ -370,7 +370,7 @@ export default function ConsultingPage() {
               alt="مشاوره طراحی سایت با ری اکت و نکست"
               width={480}
               height={402}
-              className="w-full h-auto"
+              className="h-auto max-w-[480px] mx-auto"
             />
           </div>
         </div>
