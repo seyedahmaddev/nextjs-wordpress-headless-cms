@@ -364,7 +364,7 @@ export default function ConsultingPage() {
 
         {/* ---------- بخش تصویر دوم (ری اکت) ---------- */}
         <div className="my-16">
-          <div className="rounded-2xl overflow-hidden shadow-lg">
+          <div className="rounded-2xl overflow-hidden shadow-lg max-w-[480px] mx-auto">
             <Image
               src="/assets/Reactjs.jpg"
               alt="مشاوره طراحی سایت با ری اکت و نکست"
