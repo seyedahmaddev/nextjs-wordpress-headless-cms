@@ -1,12 +1,10 @@
-// app/مشاوره-طراحی-سایت/page.js
-
-export default function ConsultingPage() {
+export default function Contactme() {
   return (
-    <main>
+    <div>
       <h1>مشاوره طراحی سایت</h1>
       <p>این صفحه محتوای خود را از وردپرس گرفته است.</p>
       {/* تمام محتوای HTML، متن و تصاویر صفحه وردپرسی را اینجا قرار دهید */}
       {/* برای استفاده از تصاویر، از کامپوننت next/image استفاده کنید */}
-    </main>
+    </div>
   );
 }
