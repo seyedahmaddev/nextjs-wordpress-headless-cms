@@ -126,7 +126,7 @@ export default function ConsultingPage() {
         <section className="mb-16">
           <div className="relative mx-auto max-w-2xl">
             <Image
-              src="/images/consulting-hotspot.png" // این تصویر را در public/images قرار دهید
+              src="/assets/website-design.png"
               alt="مشاوره طراحی سایت و توسعه وب اپلیکیشن با سید احمد"
               width={530}
               height={471}
@@ -332,7 +332,7 @@ export default function ConsultingPage() {
         <div className="my-16">
           <div className="rounded-2xl overflow-hidden shadow-lg">
             <Image
-              src="/images/react-js.jpg"
+              src="/assets/Reactjs.jpg"
               alt="مشاوره طراحی سایت با ری اکت و نکست"
               width={715}
               height={402}
