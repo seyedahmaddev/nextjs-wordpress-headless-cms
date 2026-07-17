@@ -39,7 +39,7 @@ const callsToAction = [
 const company = [
   { name: 'همکاری', href: '#' },
   { name: 'پشتیبانی', href: '#' },
-  { name: 'تماس با من', href: '#' },
+  { name: 'تماس با من', href: '/مشاوره-طراحی-سایت' },
   { name: 'وبلاگ', href: '/blog' },
 ];
 

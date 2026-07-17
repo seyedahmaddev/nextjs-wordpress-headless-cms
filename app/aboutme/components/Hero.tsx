@@ -53,7 +53,7 @@ export default function Hero({ image }: HeroProps) {
                             }}
                         >
                             <Link
-                                href="/contact"
+                                href="/مشاوره-طراحی-سایت"
                                 className="rounded-xl bg-indigo-600 px-7 py-4 font-semibold text-white shadow-lg shadow-indigo-500/30 transition"
                             >
                                 تماس با من

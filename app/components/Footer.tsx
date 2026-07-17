@@ -34,17 +34,17 @@ const navigation = {
     },
     {
       name: "ایتا",
-      href: "لینک ایتا",
+      href: "https://eitaa.com/Seyedahmaddeveloper",
       icon: EitaaIcon, // TODO: با EitaaIcon جایگزین کن
     },
     {
       name: "آپارات",
-      href: "لینک کانال آپارات",
+      href: "https://www.aparat.com/seyedahmaddev",
       icon: BaleIcon, // TODO: با AparatIcon جایگزین کن
     },
     {
       name: "روبیکا",
-      href: "لینک روبیکا",
+      href: "https://rubika.ir/seyedahmaddev",
       icon: RubikaIcon, // TODO: با RubikaIcon جایگزین کن
     },
   ],
