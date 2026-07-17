@@ -37,7 +37,6 @@ const callsToAction = [
   { name: 'پیامک و تماس', href: 'tel:09034260454', icon: PhoneIcon, external: true },
 ];
 const company = [
-  { name: 'درباره من', href: '#' },
   { name: 'همکاری', href: '#' },
   { name: 'پشتیبانی', href: '#' },
   { name: 'تماس با من', href: '#' },
@@ -126,6 +125,10 @@ export default function Header() {
 
           <Link href="/blog" className="text-sm/6 font-semibold text-gray-900">
             وبلاگ
+          </Link>
+
+          <Link href="/aboutme" className="text-sm/6 font-semibold text-gray-900">
+            درباره من
           </Link>
 
           <Popover className="relative">
