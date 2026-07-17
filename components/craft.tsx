@@ -19,7 +19,7 @@ export interface BaseProps {
 
 // HTML props interface for dangerouslySetInnerHTML
 export interface HTMLProps {
-  dangerouslySetInnerHTML?: { __html: string };
+  dangerouslySetInnerHTML?: { __html: string; };
 }
 
 // Available breakpoints as a const object for better type safety
@@ -70,8 +70,8 @@ export type GapValue = keyof typeof GAP_VALUES;
 export type ResponsiveValue<T> =
   | T
   | {
-      [K in Breakpoint]?: T;
-    };
+    [K in Breakpoint]?: T;
+  };
 
 // Box-specific props with improved type safety
 export interface BoxProps extends BaseProps {
@@ -95,7 +95,7 @@ const styles = {
       "[&_h5]:text-lg [&_h5]:font-medium [&_h5]:tracking-tight",
       "[&_h6]:text-base [&_h6]:font-medium [&_h6]:tracking-tight",
       // Text elements
-      "[&_p]:text-base [&_p]:leading-7 [&_p]:mb-4",
+      "[&_p]:text-[1rem] md:[&_p]:text-[1.0625rem] lg:[&_p]:text-[1.125rem] [&_p]:leading-9 [&_p]:mb-6",
       "[&_strong]:font-semibold",
       "[&_em]:italic",
       "[&_del]:line-through",
@@ -116,13 +116,13 @@ const styles = {
     ],
     lists: [
       // Unordered lists
-      "[&_ul]:pl-0 [&_ul]:list-none [&_ul]:space-y-2",
-      "[&_ul_li]:relative [&_ul_li]:pl-6",
-      "[&_ul_li]:before:absolute [&_ul_li]:before:left-1 [&_ul_li]:before:top-[0.6875em] [&_ul_li]:before:h-1.5 [&_ul_li]:before:w-1.5 [&_ul_li]:before:rounded-full [&_ul_li]:before:bg-foreground/80",
+      "[&_ul]:pr-0 [&_ul]:list-none [&_ul]:space-y-2",
+      "[&_ul_li]:relative [&_ul_li]:pr-6",
+      "[&_ul_li]:before:absolute [&_ul_li]:before:right-1 [&_ul_li]:before:top-[0.6875em] [&_ul_li]:before:h-1.5 [&_ul_li]:before:w-1.5 [&_ul_li]:before:rounded-full [&_ul_li]:before:bg-foreground/80",
       // Ordered lists
-      "[&_ol]:list-decimal [&_ol]:pl-6 [&_ol]:space-y-2",
-      "[&_ol_ol]:list-[lower-alpha] [&_ol_ol]:pl-6",
-      "[&_ol_ol_ol]:list-[lower-roman] [&_ol_ol_ol]:pl-6",
+      "[&_ol]:list-decimal [&_ol]:pr-6 [&_ol]:space-y-2",
+      "[&_ol_ol]:list-[lower-alpha] [&_ol_ol]:pr-6",
+      "[&_ol_ol_ol]:list-[lower-roman] [&_ol_ol_ol]:pr-6",
       // List item styles
       "[&_li]:pl-2",
       "[&_ol>li]:marker:text-foreground/80",
@@ -137,8 +137,8 @@ const styles = {
       "[&_li]:has([type=checkbox]):list-none",
       "[&_li_input[type=checkbox]]:absolute [&_li_input[type=checkbox]]:left-0 [&_li_input[type=checkbox]]:top-1 [&_li_input[type=checkbox]]:mt-0.5",
       // Mixed lists
-      "[&_ol_ul]:pl-6",
-      "[&_ul_ol]:pl-6",
+      "[&_ol_ul]:pr-6",
+      "[&_ul_ol]:pr-6",
     ],
     code: [
       "[&_code]:relative [&_code]:rounded [&_code]:bg-muted/50 [&_code]:px-[0.3rem] [&_code]:py-[0.2rem] [&_code]:font-mono [&_code]:text-sm [&_code]:font-medium",
@@ -150,7 +150,7 @@ const styles = {
       "[&_table]:w-full [&_table]:my-4 [&_table]:overflow-x-auto [&_table]:rounded-lg [&_table]:border",
       "[&_thead]:bg-muted/50",
       "[&_tr]:border-b [&_tr]:last:border-0",
-      "[&_th]:border-r [&_th]:px-4 [&_th]:py-2 [&_th]:text-left [&_th]:font-semibold [&_th]:last:border-0",
+      "[&_th]:border-r [&_th]:px-4 [&_th]:py-2 [&_th]:text-right [&_th]:font-semibold [&_th]:last:border-0",
       "[&_td]:border-r [&_td]:px-4 [&_td]:py-2 [&_td]:last:border-0",
     ],
     media: [
@@ -161,7 +161,7 @@ const styles = {
       "[&_figure_figcaption]:text-sm [&_figure_figcaption]:mt-2 [&_figure_figcaption]:text-muted-foreground",
     ],
     misc: [
-      "[&_blockquote]:border-l-4 [&_blockquote]:border-primary/20 [&_blockquote]:pl-4 [&_blockquote]:py-1 [&_blockquote]:my-4 [&_blockquote]:text-muted-foreground",
+      "[&_blockquote]:border-r-4 [&_blockquote]:border-primary/20 [&_blockquote]:pr-4 [&_blockquote]:py-1 [&_blockquote]:my-4 [&_blockquote]:text-muted-foreground",
       "[&_blockquote_blockquote]:mt-4",
       "[&_hr]:my-8 [&_hr]:border-t-2 [&_hr]:border-muted",
       "[&_abbr]:cursor-help [&_abbr]:underline [&_abbr]:underline-dotted [&_abbr]:underline-offset-4",
@@ -179,8 +179,8 @@ const styles = {
   },
   layout: {
     spacing: "[&>*+*]:mt-6",
-    article: "max-w-[75ch] mx-auto",
-    container: "max-w-5xl mx-auto p-6 sm:p-8",
+    article: "max-w-4xl mx-auto",
+    container: "max-w-5xl mx-auto px-4 sm:px-6 lg:px-8",
     section: "py-8 md:py-12",
   },
 };
@@ -204,7 +204,7 @@ const articleTypographyStyles = [
 // Components
 export const Layout = ({ children, className }: BaseProps) => (
   <html
-    lang="en"
+    lang="fa" dir="rtl"
     suppressHydrationWarning
     className={cn("scroll-smooth antialiased focus:scroll-auto", className)}
   >
