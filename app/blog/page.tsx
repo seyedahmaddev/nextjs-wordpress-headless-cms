@@ -69,7 +69,7 @@ export default async function Page({
     if (author) params.set("author", author);
     if (tag) params.set("tag", tag);
     if (search) params.set("search", search);
-    return `/posts${params.toString() ? `?${params.toString()}` : ""}`;
+    return `/blog${params.toString() ? `?${params.toString()}` : ""}`;
   };
 
   return (
@@ -79,7 +79,7 @@ export default async function Page({
           <Prose>
             <h2>همه پستهای وبلاگ</h2>
             <p className="text-muted-foreground">
-              {total} {total === 1 ? "post" : "posts"} found
+              {total} {total === 1 ? "پست" : "پست"} پیدا شد
               {search && " matching your search"}
             </p>
           </Prose>
