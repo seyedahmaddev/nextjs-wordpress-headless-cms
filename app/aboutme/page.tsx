@@ -28,7 +28,7 @@ export default function AboutPage() {
 
       <TechStack />
 
-      <Certificates />
+      {/* <Certificates /> */}
 
       <ContactCTA />
 
