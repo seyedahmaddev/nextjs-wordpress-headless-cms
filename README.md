@@ -1,232 +1,396 @@
 # Next.js + WordPress Hybrid Starter
 
-> Modern Headless WordPress powered by **Next.js 16**, **React 19** and **TypeScript** with a built-in fallback to the native WordPress frontend.
+> 🇬🇧 English documentation is available below.
 
-![Next.js](https://img.shields.io/badge/Next.js-16-black)
-![React](https://img.shields.io/badge/React-19-blue)
-![WordPress](https://img.shields.io/badge/WordPress-7-21759B)
-![TypeScript](https://img.shields.io/badge/TypeScript-5-blue)
-![License](https://img.shields.io/badge/License-MIT-green)
+# 🇮🇷 Persian
 
----
+## معرفی پروژه
 
-# Why This Project?
+این پروژه یک **Headless WordPress Starter** است که با **Next.js 16**، **React 19** و **TypeScript** توسعه داده شده است.
 
-I have been developing WordPress websites for years.
-
-After moving to React and Next.js, my goal was to build every new project as a fully Headless CMS.
-
-However, there is an important challenge for businesses in Iran and some other regions.
-
-Because international internet connectivity may become unstable, hosting the frontend entirely on platforms like Vercel could make websites temporarily inaccessible.
-
-This project solves that problem.
-
-Instead of replacing WordPress completely, it keeps WordPress alive as the primary CMS while Next.js becomes the modern frontend whenever it is available.
-
-If the frontend cannot be reached, the website can instantly switch back to the original WordPress theme without losing content, URLs, or SEO.
+هدف این پروژه تنها ساخت یک وب‌سایت سریع نبود؛ بلکه طراحی یک معماری قابل اعتماد برای شرایط واقعی کسب‌وکارها، به‌ویژه در ایران بود.
 
 ---
 
-# Architecture
+## چرا این پروژه را ساختم؟
+
+من سال‌هاست که با وردپرس، المنتور و ووکامرس وب‌سایت طراحی می‌کنم.
+
+بعد از مهاجرت به React و Next.js تصمیم داشتم تمام پروژه‌های جدیدم را با معماری Headless و Strapi توسعه دهم.
+
+اما در عمل به یک چالش مهم رسیدم.
+
+در ایران همیشه احتمال اختلال یا قطع اینترنت بین‌الملل وجود دارد. اگر Frontend روی سرویس‌هایی مانند Vercel یا سایر زیرساخت‌های خارجی قرار داشته باشد، ممکن است کاربران داخل کشور در برخی شرایط نتوانند به سایت دسترسی داشته باشند؛ در حالی که خود وردپرس همچنان روی سرور داخلی در دسترس است.
+
+به همین دلیل این معماری را طراحی کردم.
+
+---
+
+## ایده اصلی
+
+در این پروژه:
+
+- وردپرس همچنان CMS اصلی است.
+- تمام محتوا داخل وردپرس مدیریت می‌شود.
+- فرانت‌اند با Next.js نمایش داده می‌شود.
+- ارتباط از طریق REST API برقرار است.
+
+در حالت عادی:
 
 ```
-                    Visitors
-                       │
-                       ▼
-              Next.js Frontend
-             (React 19 / App Router)
-                       │
-                REST API Requests
-                       │
-                       ▼
-                 WordPress CMS
-               (Content Management)
-                       │
-                       ▼
-                 MySQL Database
+کاربر
+   │
+   ▼
+Next.js
+   │
+REST API
+   │
+WordPress
 ```
 
-### Fallback Strategy
-
-Normal Mode
+اما اگر به هر دلیلی اینترنت بین‌الملل دچار اختلال شود، تنها با تغییر Reverse Proxy، DNS یا تنظیمات وب‌سرور می‌توان سایت را روی قالب اصلی وردپرس نمایش داد.
 
 ```
-Visitor
-     │
-     ▼
- Next.js
-     │
- REST API
-     │
- WordPress
-```
-
-Emergency Mode
-
-```
-Visitor
-     │
-     ▼
+کاربر
+   │
+   ▼
 WordPress Theme
 ```
 
-The content never changes.
+در این حالت:
 
-Only the frontend changes.
-
-All URLs remain exactly the same.
-
-This helps preserve SEO and user experience.
+- هیچ محتوایی از بین نمی‌رود.
+- هیچ لینکی تغییر نمی‌کند.
+- تمام URLها ثابت باقی می‌مانند.
+- سئو حفظ می‌شود.
+- کاربران همچنان به سایت دسترسی خواهند داشت.
 
 ---
 
-# Features
+## مزایای این معماری
+
+✔ حفظ کامل پنل مدیریت وردپرس
+
+✔ حفظ تمامی افزونه‌های وردپرس
+
+✔ حفظ URLهای فعلی
+
+✔ عدم آسیب به سئو
+
+✔ سرعت بسیار بیشتر نسبت به قالب‌های معمول وردپرس
+
+✔ امکان استفاده از React 19
+
+✔ استفاده از Next.js 16 App Router
+
+✔ Server Components
+
+✔ Dynamic Metadata
+
+✔ Dynamic Sitemap
+
+✔ Open Graph
+
+✔ Image Optimization
+
+✔ Incremental Static Regeneration
+
+✔ Cache Revalidation
+
+---
+
+## مناسب چه کسانی است؟
+
+این معماری برای موارد زیر بسیار مناسب است:
+
+- وب‌سایت‌های شرکتی
+- فروشگاه‌های ووکامرس
+- وبلاگ‌های بزرگ
+- سایت‌های خبری
+- سایت‌های آموزشی
+- سازمان‌ها و شرکت‌هایی که سال‌ها روی وردپرس فعالیت کرده‌اند.
+
+اگر نمی‌خواهید تمام سایت وردپرسی خود را از ابتدا بازنویسی کنید اما به یک رابط کاربری مدرن، سریع و سئو محور نیاز دارید، این پروژه دقیقاً برای شماست.
+
+---
+
+## خدماتی که ارائه می‌دهم
+
+در صورت نیاز می‌توانم پروژه‌های زیر را به صورت ریموت انجام دهم:
+
+- تبدیل وردپرس به Headless
+- توسعه Frontend با Next.js
+- مهاجرت از قالب وردپرس به React
+- طراحی فروشگاه Headless WooCommerce
+- افزایش سرعت سایت
+- بهینه‌سازی Core Web Vitals
+- سئوی فنی (Technical SEO)
+- توسعه اختصاصی React و Next.js
+
+---
+
+## ارتباط با من
+
+اگر سؤال، پیشنهاد یا پروژه‌ای دارید خوشحال می‌شوم با من در ارتباط باشید.
+
+### LinkedIn
+
+https://www.linkedin.com/in/seyedahmaddev
+
+### WhatsApp
+
+https://wa.me/989034260454
+
+### پیام‌رسان بله 
+
+https://ble.ir/SeyedAhmadDev
+
+---
+
+## حمایت از پروژه
+
+اگر این پروژه برای شما مفید بود لطفاً به آن ⭐ Star بدهید.
+
+همچنین Pull Request، Issue و پیشنهادهای شما با کمال میل پذیرفته می‌شود.
+
+---
+
+# 🇬🇧 English Documentation
+
+Next.js + WordPress Hybrid Starter
+
+«Modern Headless WordPress Starter built with Next.js 16, React 19 and TypeScript — designed for high performance, SEO, and reliability.»
+
+<p align="center">"Next.js" (https://img.shields.io/badge/Next.js-16-black?logo=nextdotjs)
+"React" (https://img.shields.io/badge/React-19-61DAFB?logo=react)
+"TypeScript" (https://img.shields.io/badge/TypeScript-5-blue?logo=typescript)
+"WordPress" (https://img.shields.io/badge/WordPress-7-21759B?logo=wordpress)
+"TailwindCSS" (https://img.shields.io/badge/TailwindCSS-v4-38BDF8?logo=tailwindcss)
+"MIT License" (https://img.shields.io/badge/License-MIT-green)
+
+</p>---
+
+«🇬🇧 English documentation is available first for the GitHub community and search engines.
+
+🇮🇷 مستندات کامل فارسی در ادامه همین فایل قرار گرفته است.»
+
+---
+
+🚀 Overview
+
+This project is a modern Headless WordPress Starter built with Next.js 16, React 19, and TypeScript.
+
+Unlike many Headless WordPress projects, this repository focuses on real-world production environments, where reliability is just as important as performance.
+
+Instead of replacing WordPress completely, this architecture keeps WordPress as the primary CMS while using Next.js as the frontend whenever it is available.
+
+If the frontend becomes unavailable for any reason, the website can quickly switch back to the native WordPress theme without changing URLs or losing SEO.
+
+This approach is especially useful for businesses that need modern web technologies while maintaining maximum uptime.
+
+---
+
+⭐ Why This Project Exists
+
+Many companies have spent years building their content inside WordPress.
+
+Migrating thousands of pages to another CMS is often expensive, risky, and unnecessary.
+
+At the same time, traditional WordPress themes usually cannot provide the performance, developer experience, and flexibility of modern React applications.
+
+This project combines the best of both worlds.
+
+- Keep WordPress.
+- Upgrade only the frontend.
+- Improve performance.
+- Improve SEO.
+- Preserve existing URLs.
+- Preserve your content.
+- Preserve your investment.
+
+---
+
+✨ Features
 
 - Next.js 16 App Router
 - React 19
 - TypeScript
 - WordPress REST API
+- Server Components
+- Server Actions
 - Dynamic Metadata
 - Dynamic Sitemap
 - Open Graph Images
-- Server Components
-- Server Actions
 - Image Optimization
-- Incremental Static Regeneration
+- ISR (Incremental Static Regeneration)
 - Cache Revalidation
-- Responsive Design
-- Dark Mode
 - Tailwind CSS
 - shadcn/ui
+- Dark Mode
+- Responsive Design
 - Type-safe API
 - Excellent SEO
+- Production Ready
 
 ---
 
-# Why Keep WordPress?
+🏗 Architecture
 
-Many companies already have years of content inside WordPress.
+                 Visitors
+                     │
+                     ▼
+            Next.js Frontend
+        (React 19 + App Router)
+                     │
+              REST API Requests
+                     │
+                     ▼
+              WordPress CMS
+                     │
+                     ▼
+                MySQL Database
 
-Migrating everything to another CMS is expensive and risky.
+Fallback Mode
 
-With this architecture you can:
+Normal Operation
 
-- Keep your current WordPress dashboard
-- Keep your plugins
-- Keep your existing URLs
-- Keep your SEO rankings
-- Upgrade only the frontend
-- Improve performance dramatically
+Visitor
+   │
+   ▼
+Next.js
+   │
+REST API
+   │
+WordPress
+
+Emergency Mode
+
+Visitor
+   │
+   ▼
+WordPress Theme
+
+The content never changes.
+
+Only the frontend changes.
+
+Your URLs remain exactly the same.
+
+Your SEO remains intact.
 
 ---
 
-# Perfect For
+🎯 Perfect For
+
+This project is ideal for:
 
 - Corporate Websites
-- Personal Blogs
 - WooCommerce Stores
+- Personal Blogs
 - Educational Platforms
 - News Websites
 - Company Websites
 - Large Content Portals
+- Government Websites
+- High-Traffic Websites
 
 ---
 
-# SEO Benefits
+📚 Table of Contents
 
-This starter is built with SEO as the first priority.
+- Overview
+- Why This Project
+- Features
+- Architecture
+- Why Hybrid?
+- SEO Benefits
+- Performance
+- Installation
+- Project Structure
+- Environment Variables
+- Deployment
+- Cache Revalidation
+- Roadmap
+- FAQ
+- Services
+- Contact
+- فارسی
+- License
 
-Features include:
+---
+
+🌍 Why Hybrid Instead of Fully Headless?
+
+A fully headless architecture is technically attractive, but it introduces new operational challenges.
+
+If your frontend is hosted on cloud providers such as Vercel while your WordPress installation remains elsewhere, the availability of your website depends on multiple services.
+
+For many businesses this is acceptable.
+
+However, there are situations where maximum availability is more important than having only one frontend.
+
+This project introduces a hybrid strategy.
+
+WordPress remains fully functional.
+
+Next.js acts as a modern frontend.
+
+If necessary, switching back to the native WordPress theme can be done without changing URLs or content.
+
+This architecture minimizes business risk while still providing all the advantages of a modern React application.
+
+---
+
+🚀 SEO First
+
+Search engine optimization is not an afterthought.
+
+It is one of the core goals of this project.
+
+Included SEO features:
 
 - Dynamic Metadata
-- Open Graph
+- Dynamic Open Graph Images
 - Twitter Cards
-- Dynamic Sitemap
+- XML Sitemap
 - Robots.txt
 - Canonical URLs
+- Semantic HTML
 - Server-side Rendering
 - Static Generation
-- Optimized Images
-- Fast Core Web Vitals
+- Image Optimization
+- Core Web Vitals Optimization
+- Fast Loading Pages
 
 ---
 
-# Technology Stack
+💼 Looking for a Headless WordPress Developer?
 
-- Next.js 16
-- React 19
-- TypeScript
-- WordPress 7
-- REST API
-- Tailwind CSS
-- shadcn/ui
-
----
-
-# Roadmap
-
-- Authentication
-- Comments
-- WooCommerce Support
-- Search
-- Multi-language
-- PWA
-- Dashboard
-- Analytics
-- AI Search
-
----
-
-# Looking for a Headless WordPress Developer?
-
-If you already have a WordPress website and would like to modernize it without rebuilding everything from scratch, I can help.
+If you already have a WordPress website and would like to modernize it with Next.js without rebuilding everything from scratch, I can help.
 
 Services include:
 
-- WordPress to Next.js Migration
 - Headless WordPress Development
-- WooCommerce Headless
-- React Development
 - Next.js Development
+- React Development
+- WordPress Migration
+- WooCommerce Headless
 - Technical SEO
 - Performance Optimization
-- Custom API Integration
+- API Integration
+- Enterprise Frontend Architecture
 
-I work remotely with clients worldwide.
+I work remotely with clients worldwide and would be happy to discuss your project.
 
----
+## Let's Connect
 
-# Contact
-
-If you have any questions, ideas, or business inquiries, feel free to reach out.
+If you have any questions, suggestions, or projects, I would be happy to hear from you.
 
 ### LinkedIn
 
-https://www.linkedin.com/in/seyedahmadgholami
+https://www.linkedin.com/in/seyedahmaddev
 
-### WhatsApp (International)
+### WhatsApp
 
-https://wa.me/YOUR_NUMBER
+https://wa.me/989034260454
 
-### Bale Messenger (Iran)
-
-https://ble.ir/YOUR_USERNAME
-
----
-
-# Support the Project
-
-If you found this project useful,
-
-⭐ Please give it a Star.
-
-It helps this project reach more developers and motivates me to keep improving it.
-
-Contributions, Issues and Pull Requests are always welcome.
-
----
-
-# License
-
-MIT License
