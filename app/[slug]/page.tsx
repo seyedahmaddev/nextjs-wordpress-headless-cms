@@ -104,10 +104,10 @@ export default async function Page({
             )}
           </div>
           {featuredMedia?.source_url && (
-            <div className="h-96 my-12 md:h-[500px] overflow-hidden flex items-center justify-center border rounded-lg bg-accent/25">
+            <div className="my-12 flex items-center justify-center border rounded-lg bg-accent/25">
               {/* eslint-disable-next-line */}
               <Image
-                className="w-full h-full object-cover"
+                className="w-full h-auto max-w-full object-contain"
                 src={featuredMedia.source_url}
                 alt={post.title.rendered}
                 width={1200}
