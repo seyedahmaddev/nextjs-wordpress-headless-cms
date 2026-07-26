@@ -11,7 +11,7 @@ import Header from "./components/Header";
 
 // متادیتای اختصاصی
 export const metadata: Metadata = {
-  title: "سید احمد غلامی — طراحی سایت، توسعه‌دهنده فرانت‌اند | Next.js & React",
+  title: " 3540835 سید احمد غلامی — طراحی سایت، توسعه‌دهنده فرانت‌اند | Next.js & React",
   description: "طراحی و توسعه سایت‌های سریع، مدرن و قابل نگهداری",
   metadataBase: new URL(siteConfig.site_domain),
   alternates: {
