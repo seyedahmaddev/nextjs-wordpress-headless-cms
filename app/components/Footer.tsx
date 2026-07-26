@@ -128,7 +128,6 @@ export default function Footer() {
                 src="https://trustseal.enamad.ir/logo.aspx?id=749275&Code=ky6ltiUsenZquqtbY9OOmgbJbzSYOpRG"
                 alt="نماد اعتماد"
                 style={{ cursor: "pointer" }}
-                code="ky6ltiUsenZquqtbY9OOmgbJbzSYOpRG"
               />
             </a>
           </div>
