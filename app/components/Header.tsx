@@ -21,16 +21,18 @@ import {
   SquaresPlusIcon,
   XMarkIcon,
 } from '@heroicons/react/24/outline';
+import { MessageSquare } from "lucide-react";
 import { ChevronDownIcon, PhoneIcon, PlayCircleIcon } from '@heroicons/react/20/solid';
 import Link from 'next/link';
 import Image from 'next/image';
 
 const products = [
-  { name: 'آنالیز سایت', description: 'وضعیت وب سایت خودتان را بهتر درک کنید', href: '/services#analytics', icon: ChartPieIcon },
-  { name: 'بهینه سازی سایت', description: 'وب سایت خودتان را سئو و بهینه کنید', href: '/services#seo', icon: CursorArrowRaysIcon },
-  { name: 'امنیت وب سایت', description: 'امنیت وب سایت خودتان را تامین کنید', href: '/services#security', icon: FingerPrintIcon },
-  { name: 'سازگاری و شبکه اجتماعی', description: 'اتصال به ابزارهای آنلاین و شبکه اجتماعی', href: '/services#social', icon: SquaresPlusIcon },
-  { name: 'اتوماسیون', description: 'خودکارسازی پست محتوا و اتوریپلای چت', href: '/services#automation', icon: ArrowPathIcon },
+  { name: 'آنالیز سایت', description: 'وضعیت وب سایت خودتان را بهتر درک کنید', href: '/services#detail-analytics', icon: ChartPieIcon },
+  { name: 'بهینه سازی سایت', description: 'وب سایت خودتان را سئو و بهینه کنید', href: '/services#detail-seo', icon: CursorArrowRaysIcon },
+  { name: 'امنیت وب سایت', description: 'امنیت وب سایت خودتان را تامین کنید', href: '/services#detail-security', icon: FingerPrintIcon },
+  { name: 'سازگاری و شبکه اجتماعی', description: 'اتصال به ابزارهای آنلاین و شبکه اجتماعی', href: '/services#detail-social', icon: SquaresPlusIcon },
+  { name: 'اتوماسیون', description: 'خودکارسازی پست محتوا و اتوریپلای چت', href: '/services#detail-automation', icon: ArrowPathIcon },
+  { name: 'ساخت ربات در بله', description: 'افزایش فروش و تعامل با مشتریان', href: '/services#detail-robot', icon: MessageSquare },
 ];
 const callsToAction = [
   { name: 'پیام مستقیم در بله', href: 'https://ble.ir/seyedahmaddeveloper', icon: PlayCircleIcon, external: true },
