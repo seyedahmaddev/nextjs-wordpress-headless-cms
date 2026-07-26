@@ -26,11 +26,11 @@ import Link from 'next/link';
 import Image from 'next/image';
 
 const products = [
-  { name: 'آنالیز سایت', description: 'وضعیت وب سایت خودتان را بهتر درک کنید', href: '#', icon: ChartPieIcon },
-  { name: 'بهینه سازی سایت', description: 'وب سایت خودتان را سئو و بهینه کنید', href: '#', icon: CursorArrowRaysIcon },
-  { name: 'امنیت وب سایت', description: 'امنیت وب سایت خودتان را تامین کنید', href: '#', icon: FingerPrintIcon },
-  { name: 'سازگاری و شبکه اجتماعی', description: 'اتصال به ابزارهای آنلاین و شبکه اجتماعی', href: '#', icon: SquaresPlusIcon },
-  { name: 'اتوماسیون', description: 'خودکارسازی پست محتوا و اتوریپلای چت', href: '#', icon: ArrowPathIcon },
+  { name: 'آنالیز سایت', description: 'وضعیت وب سایت خودتان را بهتر درک کنید', href: '/services#analytics', icon: ChartPieIcon },
+  { name: 'بهینه سازی سایت', description: 'وب سایت خودتان را سئو و بهینه کنید', href: '/services#seo', icon: CursorArrowRaysIcon },
+  { name: 'امنیت وب سایت', description: 'امنیت وب سایت خودتان را تامین کنید', href: '/services#security', icon: FingerPrintIcon },
+  { name: 'سازگاری و شبکه اجتماعی', description: 'اتصال به ابزارهای آنلاین و شبکه اجتماعی', href: '/services#social', icon: SquaresPlusIcon },
+  { name: 'اتوماسیون', description: 'خودکارسازی پست محتوا و اتوریپلای چت', href: '/services#automation', icon: ArrowPathIcon },
 ];
 const callsToAction = [
   { name: 'پیام مستقیم در بله', href: 'https://ble.ir/seyedahmaddeveloper', icon: PlayCircleIcon, external: true },
