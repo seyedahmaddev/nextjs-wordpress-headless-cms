@@ -49,7 +49,8 @@ export default function Footer() {
   return (
     <footer className="bg-gray-900" dir="rtl">
       <div className="mx-auto max-w-7xl px-6 pt-16 pb-8 sm:pt-24 lg:px-8 lg:pt-32">
-        <div className="xl:grid xl:grid-cols-3 xl:gap-8">
+        {/* Grid با ۴ ستون در اندازه xl */}
+        <div className="xl:grid xl:grid-cols-4 xl:gap-8">
           {/* ستون اول: برند */}
           <div className="space-y-8">
             <Image
@@ -82,42 +83,42 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* ستون دوم: خدمات و لینک‌ها (با دو ستون داخلی) */}
-          <div className="mt-16 grid grid-cols-2 gap-8 xl:col-span-2 xl:mt-0">
-            <div>
-              <h3 className="text-sm/6 font-semibold text-white">خدمات</h3>
-              <ul role="list" className="mt-6 space-y-4">
-                {navigation.services.map((item) => (
-                  <li key={item.name}>
-                    <a
-                      href={item.href}
-                      className="text-sm/6 text-gray-400 hover:text-white"
-                    >
-                      {item.name}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div>
-              <h3 className="text-sm/6 font-semibold text-white">لینک‌ها</h3>
-              <ul role="list" className="mt-6 space-y-4">
-                {navigation.links.map((item) => (
-                  <li key={item.name}>
-                    <a
-                      href={item.href}
-                      className="text-sm/6 text-gray-400 hover:text-white"
-                    >
-                      {item.name}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </div>
+          {/* ستون دوم: خدمات */}
+          <div className="mt-16 xl:mt-0">
+            <h3 className="text-sm/6 font-semibold text-white">خدمات</h3>
+            <ul role="list" className="mt-6 space-y-4">
+              {navigation.services.map((item) => (
+                <li key={item.name}>
+                  <a
+                    href={item.href}
+                    className="text-sm/6 text-gray-400 hover:text-white"
+                  >
+                    {item.name}
+                  </a>
+                </li>
+              ))}
+            </ul>
           </div>
 
-          {/* ستون سوم: نشان نماد اعتماد (جدید) */}
-          <div className="mt-16 flex justify-center xl:col-span-1 xl:mt-0">
+          {/* ستون سوم: لینک‌ها */}
+          <div className="mt-16 xl:mt-0">
+            <h3 className="text-sm/6 font-semibold text-white">لینک‌ها</h3>
+            <ul role="list" className="mt-6 space-y-4">
+              {navigation.links.map((item) => (
+                <li key={item.name}>
+                  <a
+                    href={item.href}
+                    className="text-sm/6 text-gray-400 hover:text-white"
+                  >
+                    {item.name}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* ستون چهارم: نشان نماد اعتماد (چپ‌ترین) */}
+          <div className="mt-16 flex justify-center xl:mt-0">
             <a
               referrerPolicy="origin"
               target="_blank"
@@ -133,6 +134,7 @@ export default function Footer() {
           </div>
         </div>
 
+        {/* خط جداکننده و کپی‌رایت */}
         <div className="mt-16 border-t border-white/10 pt-8 sm:mt-20 lg:mt-24">
           <p className="text-sm/6 text-gray-400">
             &copy; {new Date().getFullYear()} سید احمد. تمامی حقوق محفوظ است.
