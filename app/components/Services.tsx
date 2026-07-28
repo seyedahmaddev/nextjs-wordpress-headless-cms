@@ -32,7 +32,7 @@ export default function Services() {
   return (
     <div className="bg-white py-24 sm:py-32">
       <div className="mx-auto max-w-5xl px-4 lg:px-2">
-        <div className="mx-auto max-w-2xl lg:text-center">
+        <div className="mx-auto max-w-2xl text-center">
           <h2 className="text-base/7 text-xl font-semibold text-blue-600">خدمات من</h2>
           <p className="mt-2 text-xl font-semibold tracking-tight text-gray-900 sm:text-4xl">
             از ایده تا محصول نهایی، با تکنولوژی‌های روز

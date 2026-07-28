@@ -48,9 +48,10 @@ const navigation = {
 export default function Footer() {
   return (
     <footer className="bg-gray-900" dir="rtl">
-      <div className="mx-auto max-w-7xl px-6 pt-16 pb-8 sm:pt-24 lg:px-8 lg:pt-32">
-        {/* Grid با ۴ ستون در اندازه xl */}
-        <div className="xl:grid xl:grid-cols-4 xl:gap-8">
+      <div className="mx-auto max-w-7xl px-6 pt-16 pb-8 sm:pt-24 lg:px-24 lg:pt-32">
+        {/* اضافه کردن text-center برای موبایل و xl:text-right برای دسکتاپ */}
+        <div className="xl:grid xl:grid-cols-4 xl:gap-8 text-center xl:text-right">
+          
           {/* ستون اول: برند */}
           <div className="space-y-8">
             <Image
@@ -58,11 +59,14 @@ export default function Footer() {
               src="/logos/Seyed-ahmad-dev3-150x150.png"
               width={24}
               height={24}
+              className="mx-auto xl:mx-0" // لوگو در موبایل وسط، در دسکتاپ سمت راست
             />
-            <p className="text-sm/6 text-balance text-gray-300">
+            {/* افزایش فونت در دسکتاپ با xl:text-base */}
+            <p className="text-sm/6 xl:text-base text-balance text-gray-300">
               طراحی و توسعه وب با بهترین تکنولوژی‌های روز دنیا.
             </p>
-            <div className="flex gap-x-6">
+            {/* شبکه‌های اجتماعی: در موبایل وسط، در دسکتاپ سمت راست */}
+            <div className="flex gap-x-6 justify-center xl:justify-start">
               {navigation.social.map((item) => (
                 <a
                   key={item.name}
@@ -85,13 +89,15 @@ export default function Footer() {
 
           {/* ستون دوم: خدمات */}
           <div className="mt-16 xl:mt-0">
-            <h3 className="text-sm/6 font-semibold text-white">خدمات</h3>
+            <h3 className="text-sm/6 xl:text-base font-semibold text-white">
+              خدمات
+            </h3>
             <ul role="list" className="mt-6 space-y-4">
               {navigation.services.map((item) => (
                 <li key={item.name}>
                   <a
                     href={item.href}
-                    className="text-sm/6 text-gray-400 hover:text-white"
+                    className="text-sm/6 xl:text-base text-gray-400 hover:text-white"
                   >
                     {item.name}
                   </a>
@@ -102,13 +108,15 @@ export default function Footer() {
 
           {/* ستون سوم: لینک‌ها */}
           <div className="mt-16 xl:mt-0">
-            <h3 className="text-sm/6 font-semibold text-white">لینک‌ها</h3>
+            <h3 className="text-sm/6 xl:text-base font-semibold text-white">
+              لینک‌ها
+            </h3>
             <ul role="list" className="mt-6 space-y-4">
               {navigation.links.map((item) => (
                 <li key={item.name}>
                   <a
                     href={item.href}
-                    className="text-sm/6 text-gray-400 hover:text-white"
+                    className="text-sm/6 xl:text-base text-gray-400 hover:text-white"
                   >
                     {item.name}
                   </a>
@@ -117,8 +125,9 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* ستون چهارم: نشان نماد اعتماد (چپ‌ترین) */}
-          <div className="mt-16 flex justify-center xl:mt-0">
+          {/* ستون چهارم: نشان نماد اعتماد */}
+          {/* در موبایل وسط، در دسکتاپ به انتهای چپ (چپ‌ترین) */}
+          <div className="mt-16 flex justify-center xl:mt-0 xl:justify-end">
             <a
               referrerPolicy="origin"
               target="_blank"
@@ -136,7 +145,8 @@ export default function Footer() {
 
         {/* خط جداکننده و کپی‌رایت */}
         <div className="mt-16 border-t border-white/10 pt-8 sm:mt-20 lg:mt-24">
-          <p className="text-sm/6 text-gray-400">
+          {/* کپی‌رایت هم در موبایل وسط و در دسکتابت راست‌چین + فونت بزرگ‌تر */}
+          <p className="text-sm/6 xl:text-base text-gray-400 text-center xl:text-right">
             &copy; {new Date().getFullYear()} سید احمد. تمامی حقوق محفوظ است.
           </p>
         </div>
