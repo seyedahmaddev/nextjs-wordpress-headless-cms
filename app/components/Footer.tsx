@@ -2,6 +2,7 @@ import Image from "next/image";
 import BaleIcon from "@/public/logos/bale.png";
 import EitaaIcon from "@/public/logos/Eitaa2.png";
 import RubikaIcon from "@/public/logos/logo-rubika.png";
+import Link from "next/link";
 
 const navigation = {
   services: [
@@ -51,16 +52,18 @@ export default function Footer() {
       <div className="mx-auto max-w-7xl px-6 pt-16 pb-8 sm:pt-24 lg:px-24 lg:pt-32">
         {/* اضافه کردن text-center برای موبایل و xl:text-right برای دسکتاپ */}
         <div className="xl:grid xl:grid-cols-4 xl:gap-8 text-center xl:text-right">
-          
+
           {/* ستون اول: برند */}
           <div className="space-y-8">
-            <Image
-              alt="طراحی سایت، وب اپلیکیشن داشبورد، توسعه دهنده سیداحمد غلامی"
-              src="/logos/Seyed-ahmad-dev3-150x150.png"
-              width={24}
-              height={24}
-              className="mx-auto xl:mx-0" // لوگو در موبایل وسط، در دسکتاپ سمت راست
-            />
+            <Link href="/">
+              <Image
+                alt="طراحی سایت، وب اپلیکیشن داشبورد، توسعه دهنده سیداحمد غلامی"
+                src="/logos/Seyed-ahmad-dev3-150x150.png"
+                width={64}
+                height={64}
+                className="mx-auto xl:mx-0" // لوگو در موبایل وسط، در دسکتاپ سمت راست
+              />
+            </Link>
             {/* افزایش فونت در دسکتاپ با xl:text-base */}
             <p className="text-sm/6 xl:text-base text-balance text-gray-300">
               طراحی و توسعه وب با بهترین تکنولوژی‌های روز دنیا.
@@ -145,9 +148,15 @@ export default function Footer() {
 
         {/* خط جداکننده و کپی‌رایت */}
         <div className="mt-16 border-t border-white/10 pt-8 sm:mt-20 lg:mt-24">
-          {/* کپی‌رایت هم در موبایل وسط و در دسکتابت راست‌چین + فونت بزرگ‌تر */}
           <p className="text-sm/6 xl:text-base text-gray-400 text-center xl:text-right">
-            &copy; {new Date().getFullYear()} سید احمد. تمامی حقوق محفوظ است.
+            &copy; {new Date().getFullYear()}
+            <span>طراحی سایت سید احمد غلامی</span>
+            <span className="hidden xl:inline mx-2">|</span>
+            <span className="block xl:inline">
+              توسعه با Next.js، React، وردپرس و معماری هدلس.
+            </span>
+            <br className="xl:hidden" />
+            <span>تمامی حقوق محفوظ است.</span>
           </p>
         </div>
       </div>
