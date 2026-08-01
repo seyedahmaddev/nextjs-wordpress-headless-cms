@@ -5,7 +5,7 @@ import Footer from "@/app/components/Footer";
 import { Analytics } from "@vercel/analytics/react";
 import { siteConfig } from "@/site.config";
 import { cn } from "@/lib/utils";
-
+import ILAChatWidget from "./aboutme/components/ILAChatWidget";
 import type { Metadata } from "next";
 import Header from "./components/Header";
 
@@ -45,7 +45,9 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <Header />
-          <main className="flex-1">{children}</main>
+          <main className="flex-1">{children}
+            <ILAChatWidget />
+          </main>
           <Footer />
         </ThemeProvider>
         

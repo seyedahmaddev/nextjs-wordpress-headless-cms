@@ -17,7 +17,7 @@ export default function Hero({ image }: HeroProps) {
 
             <div className="absolute left-1/2 top-20 h-[500px] w-[500px] -translate-x-1/2 rounded-full bg-indigo-500/10 blur-[120px]" />
 
-            <div className="container relative mx-auto grid items-center gap-16 px-6 lg:grid-cols-2">
+            <div className="container relative mx-auto grid items-center gap-16 px-6 lg:px-24 lg:grid-cols-2">
 
                 <motion.div
                     variants={fadeRight}
@@ -41,7 +41,7 @@ export default function Hero({ image }: HeroProps) {
                         متخصص طراحی و توسعه وب‌سایت‌های مدرن با React، Next.js و TypeScript با تمرکز بر سرعت، سئو و معماری استاندارد.
                     </p>
 
-                    <div className="flex flex-wrap gap-4">
+                    <div className="flex flex-wrap gap-4 justify-center lg:justify-start">
 
                         <motion.div
                             whileHover={{
