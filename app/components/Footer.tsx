@@ -6,7 +6,7 @@ import Link from "next/link";
 
 const navigation = {
   services: [
-    { name: "توسعه فرانت‌اند", href: "#" },
+    { name: "توسعه فرانت‌اند", href: "/deployment-frontend" },
     { name: "اپلیکیشن‌های وب", href: "#" },
     { name: "مهاجرت وردپرس", href: "#" },
     { name: "بهینه‌سازی پروژه", href: "#" },
@@ -98,12 +98,12 @@ export default function Footer() {
             <ul role="list" className="mt-6 space-y-4">
               {navigation.services.map((item) => (
                 <li key={item.name}>
-                  <a
+                  <Link
                     href={item.href}
                     className="text-sm/6 xl:text-base text-gray-400 hover:text-white"
                   >
                     {item.name}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
