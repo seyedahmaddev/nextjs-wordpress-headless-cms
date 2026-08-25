@@ -16,7 +16,7 @@ export default function TechStacks() {
             </p>
             <div className="mt-8 flex items-center justify-center gap-x-6 lg:justify-start">
               <a
-                href=":09034260454"
+                href="tel:09034260454"
                 className="rounded-md bg-blue-500 px-3.5 py-2.5 text-sm font-semibold text-white shadow-xs hover:bg-blue-400 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500"
               >
                 تماس تلفنی با من
