@@ -46,7 +46,7 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "/og-image.webp",
+        url: "/og-image.jpg",
         width: 1200,
         height: 630,
         alt: "سید احمد غلامی — طراحی سایت و توسعه فرانت‌اند",
@@ -60,7 +60,7 @@ export const metadata: Metadata = {
     title: "طراحی سایت حرفه‌ای | توسعه‌دهنده Next.js | سید احمد غلامی",
     description:
       "وب‌سایت‌های سریع، مدرن و بهینه برای سئو. ۵ سال تجربه و ۴۰+ پروژه موفق.",
-    images: ["/og-image.webp"], // می‌تواند همان تصویر og باشد
+    images: ["/og-image.jpg"], // می‌تواند همان تصویر og باشد
     // creator: "@your_twitter_handle", // اگر اکانت توییتر دارید
   },
   
@@ -92,6 +92,11 @@ export const metadata: Metadata = {
     "ICBM": "35.6892, 51.3890",
   },
   
+   // ... سایر متادیتاها
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#ffffff" },
+    { media: "(prefers-color-scheme: dark)", color: "#1a1a2e" },
+  ],
 
 };
 

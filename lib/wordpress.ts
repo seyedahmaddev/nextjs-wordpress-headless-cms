@@ -10,7 +10,7 @@ import type {
   Page,
   Author,
   FeaturedMedia,
-} from "./wordpress.d";
+  } from "./wordpress.d";
 
 // Single source of truth for WordPress configuration
 const baseUrl = process.env.WORDPRESS_URL;
@@ -418,12 +418,15 @@ export async function getAllPostsForSitemap(): Promise<
   try {
     const allPosts: { slug: string; modified: string }[] = [];
     let page = 1;
-    let hasMore = true;
 
-    while (hasMore) {
+    while (true) {
       const response = await wordpressFetchPaginated<Post[]>(
         "/wp-json/wp/v2/posts",
-        { per_page: 100, page, _fields: "slug,modified" }
+        {
+          per_page: 100,
+          page,
+          _fields: "slug,modified",
+        }
       );
 
       allPosts.push(
@@ -432,13 +435,17 @@ export async function getAllPostsForSitemap(): Promise<
           modified: post.modified,
         }))
       );
-      hasMore = page < response.headers.totalPages;
+
+      if (page >= response.headers.totalPages) {
+        break;
+      }
+
       page++;
     }
 
     return allPosts;
-  } catch {
-    console.warn("WordPress unavailable, skipping sitemap generation");
+  } catch (error) {
+    console.warn("WordPress unavailable, skipping sitemap generation", error);
     return [];
   }
 }
