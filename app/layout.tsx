@@ -91,6 +91,7 @@ export const metadata: Metadata = {
     "geo.position": "35.6892;51.3890", // مختصات تهران 
     "ICBM": "35.6892, 51.3890",
   },
+  
 
 };
 
@@ -107,7 +108,7 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <head>
-        
+        <meta name="theme-color" content="#1a1a2e" />
       </head>
       <body
         className={cn(
