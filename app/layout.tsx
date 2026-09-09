@@ -46,7 +46,7 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "/og-image.jpg", // حتماً این تصویر را بسازید!
+        url: "/og-image.webp",
         width: 1200,
         height: 630,
         alt: "سید احمد غلامی — طراحی سایت و توسعه فرانت‌اند",
@@ -60,8 +60,8 @@ export const metadata: Metadata = {
     title: "طراحی سایت حرفه‌ای | توسعه‌دهنده Next.js | سید احمد غلامی",
     description:
       "وب‌سایت‌های سریع، مدرن و بهینه برای سئو. ۵ سال تجربه و ۴۰+ پروژه موفق.",
-    images: ["/twitter-image.jpg"], // می‌تواند همان تصویر og باشد
-    creator: "@your_twitter_handle", // اگر اکانت توییتر دارید
+    images: ["/og-image.webp"], // می‌تواند همان تصویر og باشد
+    // creator: "@your_twitter_handle", // اگر اکانت توییتر دارید
   },
   
   // ===== تگ‌های پیشرفته =====
@@ -88,7 +88,7 @@ export const metadata: Metadata = {
   other: {
     "geo.region": "IR",
     "geo.placename": "Tehran",
-    "geo.position": "35.6892;51.3890", // مختصات تهران (اختیاری)
+    "geo.position": "35.6892;51.3890", // مختصات تهران 
     "ICBM": "35.6892, 51.3890",
   },
 
