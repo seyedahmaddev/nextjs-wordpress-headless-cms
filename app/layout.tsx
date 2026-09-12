@@ -131,16 +131,7 @@ export default function RootLayout({
           <main className="flex-1">{children}
             <ILAChatWidget />
           </main>
-           {/* فرم خبرنامه Kit - قبل از فوتر */}
-        <div className="mx-auto max-w-7xl px-6 py-12">
-          <div id="kit-form-container" className="max-w-lg mx-auto"></div>
-          <Script
-            async
-            data-uid="f95810dd0e"
-            src="https://chipper-inventor-580.kit.com/f95810dd0e/index.js"
-            strategy="afterInteractive"
-          />
-        </div>
+           
           <Footer />
         </ThemeProvider>
 
