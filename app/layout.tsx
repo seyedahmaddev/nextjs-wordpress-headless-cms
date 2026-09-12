@@ -137,7 +137,6 @@ export default function RootLayout({
         <Analytics />
         <SpeedInsights />
       </body>
-      <!-- PopUp embed -->
       {/* PopUp embed */}
       <Script
         src="https://www.popthelead.com/embed/popup.v1.js"
