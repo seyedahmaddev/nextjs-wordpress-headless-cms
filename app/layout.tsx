@@ -138,7 +138,12 @@ export default function RootLayout({
         <SpeedInsights />
       </body>
       <!-- PopUp embed -->
-      <script src="https://www.popthelead.com/embed/popup.v1.js" data-site-token="cfr2pbu8pzzkrv79" async></script>
+      {/* PopUp embed */}
+      <Script
+        src="https://www.popthelead.com/embed/popup.v1.js"
+        data-site-token="cfr2pbu8pzzkrv79"
+        strategy="afterInteractive"
+      />
     </html>
   );
 }
