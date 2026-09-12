@@ -8,6 +8,7 @@ import { cn } from "@/lib/utils";
 import ILAChatWidget from "./aboutme/components/ILAChatWidget";
 import type { Metadata } from "next";
 import Header from "./components/Header";
+import Script from 'next/script';
 
 // متادیتای اختصاصی
 export const metadata: Metadata = {
@@ -53,7 +54,7 @@ export const metadata: Metadata = {
       },
     ],
   },
-  
+
   // ===== Twitter Cards =====
   twitter: {
     card: "summary_large_image",
@@ -63,7 +64,7 @@ export const metadata: Metadata = {
     images: ["/og-image.jpg"], // می‌تواند همان تصویر og باشد
     // creator: "@your_twitter_handle", // اگر اکانت توییتر دارید
   },
-  
+
   // ===== تگ‌های پیشرفته =====
   robots: {
     index: true,
@@ -77,13 +78,13 @@ export const metadata: Metadata = {
     },
   },
 
-    // ===== سایر تنظیمات =====
+  // ===== سایر تنظیمات =====
   category: "technology",
   classification: "طراحی سایت، توسعه وب، برنامه‌نویسی",
   authors: [{ name: "سید احمد غلامی", url: siteConfig.site_domain }],
   creator: "سید احمد غلامی",
   publisher: "سید احمد غلامی",
-  
+
   // ===== تگ‌های زبان =====
   other: {
     "geo.region": "IR",
@@ -91,8 +92,8 @@ export const metadata: Metadata = {
     "geo.position": "35.6892;51.3890", // مختصات تهران 
     "ICBM": "35.6892, 51.3890",
   },
-  
-   // ... سایر متادیتاها
+
+  // ... سایر متادیتاها
   themeColor: [
     { media: "(prefers-color-scheme: light)", color: "#ffffff" },
     { media: "(prefers-color-scheme: dark)", color: "#1a1a2e" },
@@ -132,10 +133,12 @@ export default function RootLayout({
           </main>
           <Footer />
         </ThemeProvider>
-        
+
         <Analytics />
         <SpeedInsights />
       </body>
+      <!-- PopUp embed -->
+      <script src="https://www.popthelead.com/embed/popup.v1.js" data-site-token="cfr2pbu8pzzkrv79" async></script>
     </html>
   );
 }

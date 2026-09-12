@@ -57,6 +57,11 @@ export default function ProcessTimeline() {
             </div>
           ))}
         </div>
+        <img
+                src="/assets/processwebsitedesignbyseyedahmad2.png"
+                alt="فرآیند اجرای پروژه"
+                className="w-full h-auto"
+              />
       </div>
     </section>
   );
