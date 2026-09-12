@@ -3,6 +3,7 @@ import BaleIcon from "@/public/logos/bale.png";
 import EitaaIcon from "@/public/logos/Eitaa2.png";
 import RubikaIcon from "@/public/logos/logo-rubika.png";
 import Link from "next/link";
+import Script from "next/script";
 
 const navigation = {
   services: [
@@ -50,6 +51,20 @@ export default function Footer() {
   return (
     <footer className="bg-gray-900" dir="rtl">
       <div className="mx-auto max-w-7xl px-6 pt-16 pb-8 sm:pt-24 lg:px-24 lg:pt-32">
+        {/* ===== فرم خبرنامه Kit ===== */}
+        <div className="mt-16 border-t border-white/10 pt-8">
+          <div
+            id="kit-form-container"
+            className="max-w-md mx-auto xl:mx-0 xl:max-w-lg"
+          ></div>
+          <Script
+            async
+            data-uid="f95810dd0e"
+            src="https://chipper-inventor-580.kit.com/f95810dd0e/index.js"
+            strategy="afterInteractive"
+          />
+        </div>
+
         {/* اضافه کردن text-center برای موبایل و xl:text-right برای دسکتاپ */}
         <div className="xl:grid xl:grid-cols-4 xl:gap-8 text-center xl:text-right">
 
